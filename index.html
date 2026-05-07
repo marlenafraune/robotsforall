@@ -1,318 +1,626 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <title>Robots for All</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./mystyle.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
-body, html {
-  height: 100%;
-  color: #777;
-  line-height: 1.8;
-}
-
-/* Create a Parallax Effect */
-.bgimg-1, .bgimg-2, .bgimg-3 {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-/* First image (Logo. Full height) */
-.bgimg-1 {
-  background-image: url('/w3images/parallax1.jpg');
-  min-height: 100%;
-}
-
-/* Second image (Portfolio) */
-.bgimg-2 {
-  background-image: url("/w3images/parallax2.jpg");
-  min-height: 400px;
-}
-
-/* Third image (Contact) */
-.bgimg-3 {
-  background-image: url("/w3images/parallax3.jpg");
-  min-height: 400px;
-}
-
-.w3-wide {letter-spacing: 10px;}
-.w3-hover-opacity {cursor: pointer;}
-
-/* Turn off parallax scrolling for tablets and phones */
-@media only screen and (max-device-width: 1600px) {
-  .bgimg-1, .bgimg-2, .bgimg-3 {
-    background-attachment: scroll;
-    min-height: 400px;
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+  :root {
+    --teal-50: #E1F5EE;
+    --teal-100: #9FE1CB;
+    --teal-400: #1D9E75;
+    --teal-600: #0F6E56;
+    --teal-800: #085041;
+    --teal-900: #04342C;
+    --gray-50: #F1EFE8;
+    --gray-100: #D3D1C7;
+    --gray-200: #B4B2A9;
+    --gray-400: #888780;
+    --gray-600: #5F5E5A;
+    --gray-800: #444441;
+    --gray-900: #2C2C2A;
+    --white: #FAFAF8;
+    --nav-height: 68px;
   }
-}
-
-.navbar {
-  overflow: hidden;
-  background-color: #333; 
-}
-
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.subnav {
-  float: left;
-  overflow: hidden;
-}
-
-.subnav .subnavbtn {
-  font-size: 16px;  
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
-
-.navbar a:hover, .subnav:hover .subnavbtn {
-  background-color: rgb(1, 123, 132);
-}
-
-.subnav-content {
-  display: none;
-  position: absolute;
-  left: 0;
-  background-color: rgb(1, 123, 132);
-  width: 100%;
-  z-index: 1;
-}
-
-.subnav-content a {
-  float: left;
-  color: white;
-  text-decoration: none;
-}
-
-.subnav-content a:hover {
-  background-color: #eee;
-  color: black;
-}
-
-.subnav:hover .subnav-content {
-  display: block;
-}
+ 
+  html { scroll-behavior: smooth; }
+ 
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    color: var(--gray-800);
+    background: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+ 
+  h1, h2, h3, h4, h5, h6,
+  .nav-logo, .footer-logo,
+  .step-num, .step-title, .stat-number {
+  }
+ 
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-height);
+    background: rgba(250, 250, 248, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-100);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    padding: 0 2.5rem;
+    gap: 2.5rem;
+  }
+ 
+  .nav-logo {
+    font-family: 'Playfair Display', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: 0.04em;
+    color: var(--gray-900);
+    text-decoration: none;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+ 
+  .nav-logo span {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--teal-400);
+  }
+ 
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+  }
+ 
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--gray-600);
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+    white-space: nowrap;
+  }
+ 
+  .nav-links a:hover { color: var(--gray-900); background: var(--gray-50); }
+ 
+  .nav-cta {
+    background: var(--teal-400) !important;
+    color: #fff !important;
+    padding: 0.45rem 1.1rem !important;
+    border-radius: 6px;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--teal-600) !important; }
+ 
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--nav-height) + 4rem) 2rem 6rem;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+ 
+  .hero-bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+ 
+  .hero-bg-circle.c1 {
+    width: 600px; height: 600px;
+    background: var(--teal-50);
+    top: -100px; right: -150px;
+    opacity: 0.6;
+  }
+ 
+  .hero-bg-circle.c2 {
+    width: 360px; height: 360px;
+    background: var(--gray-50);
+    bottom: 0; left: -80px;
+    opacity: 0.8;
+  }
+ 
+  .hero-content { position: relative; z-index: 1; max-width: 720px; }
+ 
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal-600);
+    background: var(--teal-50);
+    border: 1px solid var(--teal-100);
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.75rem;
+  }
+ 
+  .hero-eyebrow::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--teal-400);
+  }
+ 
+  h1 {
+    font-family: 'Playfair Display', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    line-height: 1.05;
+    color: var(--gray-900);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+ 
+  h1 em {
+    font-style: normal;
+    color: var(--teal-400);
+  }
+ 
+  .hero-sub {
+    font-size: 1.125rem;
+    color: var(--gray-600);
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+ 
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+ 
+  .btn-primary {
+    background: var(--teal-400);
+    color: #fff;
+    padding: 0.8rem 1.75rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-primary:hover { background: var(--teal-600); transform: translateY(-1px); }
+ 
+  .btn-secondary {
+    background: transparent;
+    color: var(--gray-800);
+    padding: 0.8rem 1.75rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.95rem;
+    border: 1.5px solid var(--gray-200);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--gray-400); background: var(--gray-50); }
+ 
+  /* ── SECTION SHARED ── */
+  section { padding: 6rem 2rem; }
+ 
+  .container { max-width: 1060px; margin: 0 auto; }
+ 
+  .section-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal-600);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+ 
+  h2 {
+    font-family: 'Playfair Display', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    color: var(--gray-900);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+ 
+  .section-intro {
+    font-size: 1.05rem;
+    color: var(--gray-600);
+    max-width: 560px;
+    line-height: 1.75;
+    margin-bottom: 3.5rem;
+  }
+ 
+  /* ── ABOUT ── */
+  #about {
+    background: var(--white);
+    border-top: 1px solid var(--gray-100);
+  }
+ 
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+ 
+  .about-img-wrap {
+    position: relative;
+  }
+ 
+  .about-img-wrap img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+    background: var(--gray-50);
+  }
+ 
+  .about-img-badge {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    background: var(--teal-400);
+    color: #fff;
+    font-family: 'Playfair Display', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 1rem 1.25rem;
+    border-radius: 10px;
+    line-height: 1.3;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(15, 110, 86, 0.25);
+  }
+ 
+  .pillar-list { list-style: none; margin-top: 0.75rem; }
+ 
+  .pillar-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--gray-100);
+    font-size: 0.975rem;
+    color: var(--gray-800);
+  }
+ 
+  .pillar-list li:last-child { border-bottom: none; }
+ 
+  .pillar-icon {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    background: var(--teal-50);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--teal-600);
+    font-size: 0.75rem;
+    margin-top: 2px;
+  }
+ 
+  .pillar-group { margin-bottom: 1.75rem; }
+  .pillar-group h3 {
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.01em;
+  }
+ 
+  /* ── NEXT STEPS ── */
+  #nextsteps {
+    background: var(--gray-900);
+    color: var(--white);
+  }
+ 
+  #nextsteps h2 { color: var(--white); }
+  #nextsteps .section-label { color: var(--teal-100); }
+  #nextsteps .section-intro { color: var(--gray-200); }
+ 
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+ 
+  .step-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1.75rem;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+ 
+  .step-card:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: var(--teal-400);
+    transform: translateY(-2px);
+  }
+ 
+  .step-num {
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--teal-400);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+ 
+  .step-title {
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+ 
+  .step-desc {
+    font-size: 0.88rem;
+    color: var(--gray-200);
+    line-height: 1.6;
+  }
+ 
+  .step-arrow {
+    position: absolute;
+    top: 1.5rem; right: 1.5rem;
+    color: var(--gray-400);
+    font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+  .step-card:hover .step-arrow { color: var(--teal-400); }
+ 
+  /* ── FOOTER ── */
+  footer {
+    background: var(--gray-900);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+ 
+  .footer-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+ 
+  .footer-logo {
+    font-family: 'Playfair Display', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    letter-spacing: 0.03em;
+  }
+ 
+  .footer-copy {
+    font-size: 0.82rem;
+    color: var(--gray-400);
+  }
+ 
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { gap: 0; padding: 0 1.25rem; }
+    .nav-links { display: none; }
+ 
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .about-img-badge { bottom: -1rem; right: -0.5rem; }
+    section { padding: 4rem 1.25rem; }
+  }
 </style>
 </head>
 <body>
-
-<div class="w3-top">
-  <div class="navbar">
-
-    <a href="#Home">Home</a>
-    <a href="universaldesign.html">Universal Design</a>
-    <a href="consortium.html">Consortium</a>
-    <a href="experts.html">Experts</a>
-    <a href="events.html">Events</a>
-    <a href="resources.html">Resources</a>
-    <a href="contact.html">Contact</a>
-  </div>
-
-  <!--this one has subnav>
-<div class="w3-top">
-  <div class="navbar">
-    <div class="subnav">
-      <button class="subnavbtn"><a href="#Home">Home <i class="fa fa-caret-down"></i></a></button>
-      <div class="subnav-content">
-        <a href="#RobotsForAll">Robots For All</a>
-        <a href="#NextSteps">Next Steps</a>
-      </div>
-    </div> 
-    <div class="subnav">
-      <button class="subnavbtn"><a href="#UniversalDesign">Universal Design <i class="fa fa-caret-down"></i></a></button>
-      <div class="subnav-content">
-        <a href="#Consequences">Consequences</a>
-        <a href="#WeMakeItEasy">We Make It Easy</a>
-        <a href="#package">Package</a>
-        <a href="#express">Express</a>
-      </div>
-    </div> 
-    <div class="subnav">
-      <button class="subnavbtn"><a href="#Consortium">Consortium <i class="fa fa-caret-down"></i></a></button>
-      <div class="subnav-content">
-        <a href="#Partners">Partners</a>
-        <a href="#HowToJoin">How to Join</a>
-      </div>
+ 
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">
+    <span></span>Robots for All
+  </a>
+  <ul class="nav-links">
+    <li><a href="universaldesign.html">Universal Design</a></li>
+    <li><a href="consortium.html">Consortium</a></li>
+    <li><a href="experts.html">Experts</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+ 
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg-circle c1"></div>
+  <div class="hero-bg-circle c2"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Inclusive Robotics Initiative</div>
+    <h1>Robots built <em>for everyone</em>, not just some.</h1>
+    <p class="hero-sub">
+      We partner with cross-domain experts to make robotic technologies usable by people of all abilities, sizes, and backgrounds — because better-designed robots mean safer, more accepted automation.
+    </p>
+    <div class="hero-actions">
+      <a href="#about" class="btn-primary">
+        Learn More <i class="fa-solid fa-arrow-down" style="font-size:0.8em;"></i>
+      </a>
+      <a href="contact.html" class="btn-secondary">Schedule a Meeting</a>
     </div>
-    <a href="#Experts">Experts</a>
-    <a href="#Resources">Resources</a>
-    <a href="#Contact">Contact</a>
   </div>
-  </div>
-</div>
--->
-
-<!-- Navbar (sit on top) 
-<div class="w3-top">
-  <div class="w3-bar" id="myNavbar">
-    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-      <i class="fa fa-bars"></i>
-    </a>
-    <a href="#home" class="w3-bar-item w3-button">HOME</a>
-      <div class="subnav">
-
-
-
-        <button class="subnavbtn">About <i class="fa fa-caret-down"></i></button>
-        <div class="subnav-content">
-          <a href="#RobotsForAll" class="w3-bar-item w3-button w3-hide-small"> ROBOTS FOR ALL</a>
-          <a href="#NextSteps" class="w3-bar-item w3-button w3-hide-small"> NEXT STEPS</a>
-          <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
+</section>
+ 
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img src="img/HospitalityRobot.jpg" alt="A hospitality robot in a public space">
+        <div class="about-img-badge">
+          Universal<br>Design<br>First
         </div>
       </div>
-    <div class="subnav">
-    <button class="subnavbtn">Abfsadfdsfout <i class="w3-bar-item w3-button"></i></button>
-    <div class="subnav-content">
-      <a href="#company">Company</a>
-      <a href="#team">Team</a>
-      <a href="#careers">Careers</a>
+      <div>
+        <p class="section-label">Why it matters</p>
+        <h2>Robots will be everywhere. They need to work for everyone.</h2>
+        <p class="section-intro">
+          From home companions to restaurant staff, robots are entering every aspect of daily life — but most aren't built with inclusive design in mind.
+        </p>
+ 
+        <div class="pillar-group">
+          <h3>The Opportunity</h3>
+          <ul class="pillar-list">
+            <li>
+              <span class="pillar-icon"><i class="fa-solid fa-house"></i></span>
+              In our homes: vacuuming, laundry, pets, and companions
+            </li>
+            <li>
+              <span class="pillar-icon"><i class="fa-solid fa-building"></i></span>
+              In public: restaurant waitstaff, hotel assistants, delivery robots
+            </li>
+          </ul>
+        </div>
+ 
+        <div class="pillar-group">
+          <h3>The Problem</h3>
+          <ul class="pillar-list">
+            <li>
+              <span class="pillar-icon"><i class="fa-solid fa-circle-xmark"></i></span>
+              Most robots don't account for different skills and body sizes
+            </li>
+            <li>
+              <span class="pillar-icon"><i class="fa-solid fa-circle-xmark"></i></span>
+              Companies lack the expertise to develop truly usable robots
+            </li>
+            <li>
+              <span class="pillar-icon"><i class="fa-solid fa-circle-xmark"></i></span>
+              Industry-wide guidelines for inclusive robotic design are still missing
+            </li>
+          </ul>
+        </div>
+ 
+        <div class="pillar-group">
+          <h3>Our Solution</h3>
+          <ul class="pillar-list">
+            <li>
+              <span class="pillar-icon" style="background:var(--teal-400); color:#fff;"><i class="fa-solid fa-check"></i></span>
+              We specialize in improving the usability of robotic technologies
+            </li>
+            <li>
+              <span class="pillar-icon" style="background:var(--teal-400); color:#fff;"><i class="fa-solid fa-check"></i></span>
+              We partner with cross-domain experts across HCI, engineering, and accessibility
+            </li>
+            <li>
+              <span class="pillar-icon" style="background:var(--teal-400); color:#fff;"><i class="fa-solid fa-check"></i></span>
+              Because more usable robots drive automation acceptance and safety
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
-  <i class="fa fa-search"></i>
-    </a>
-  </div>-->
-
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="index.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Home</a>
-    <a href="universaldesign.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Universal Design</a>
-    <a href="consortium.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Consortium</a>
-    <a href="experts.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Experts</a>
-    <a href="events.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Events</a>
-    <a href="resources.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Resources</a>
-    <a href="contact.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Contact</a>
-    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
-  </div>
-</div>
-
-<!-- First Parallax Image with Logo Text -->
-<div class="bgimg-1 w3-display-container w3-opacity-min" id="Home">
-  <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">ROBOTS <span class="w3-hide-small">FOR </span> ALL</span>
-  </div>
-</div>
-
-<!-- Container (#RobotsForAll Section) -->
-<div class="w3-content w3-container w3-padding-64" id="RobotsForAll">
-  <h3 class="w3-center">ROBOTS FOR ALL</h3>
-  <div class="w3-row">
-    <div class="w3-col m6 w3-center w3-padding-large">
-      <!--<p><b><i class="fa fa-user w3-margin-right"></i>Restaurant Robot</b></p><br>-->
-      <img src="img/HospitalityRobot.jpg" class="w3-round w3-image" alt="Photo of Me" width="500" height="333">
-    </div>
-
-    <div class="w3-col m6 w3-padding-large">
-      <h4>Robots will be everywhere.</h4>
-        <ul>
-          <li>In our homes, vacuuming, folding laundry, as pets or companions</li>
-          <li>In public spaces: restaurant waitstaff, hotel assistance, delivery robots</li>
-        </ul>
-      </p>
-      <h4>Robots are currently not built for everyone.</h4>
-        <ul>
-          <li>Must be usable by people of different skills, sizes</li>
-          <li>Most companies aren’t prepared to develop usable robots</li>
-          <li>Robot guidelines still need to be developed</li>
-        </ul>
-      </p>
-      <h4>That’s what Robots For All is for. </h4>
-        <ul>
-          <li>We specialize in improving usability of robotic technologies</li>
-          <li>We partner with cross-domain experts </li>
-          <li>Because more usable robots increases automation acceptance and safety in commercial and business settings.</li>
-        </ul>
-      </p>
+</section>
+ 
+<!-- NEXT STEPS -->
+<section id="nextsteps">
+  <div class="container">
+    <p class="section-label">Where to go next</p>
+    <h2>Explore Robots for All</h2>
+    <p class="section-intro">
+      Find out how our approach to universal design can revolutionize your robotic products and services.
+    </p>
+ 
+    <div class="steps-grid">
+      <a href="universaldesign.html" class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-title">Universal Design</div>
+        <div class="step-desc">Discover why universal design wins every time — for users, for business, and for safety.</div>
+        <span class="step-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a href="consortium.html" class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-title">The Consortium</div>
+        <div class="step-desc">Learn how the Robots for All Consortium operates and how your organization can join.</div>
+        <span class="step-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a href="experts.html" class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-title">Domain Experts</div>
+        <div class="step-desc">Meet the accessibility, engineering, and human-computer interaction experts we collaborate with.</div>
+        <span class="step-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a href="events.html" class="step-card">
+        <div class="step-num">04</div>
+        <div class="step-title">Upcoming Events</div>
+        <div class="step-desc">Find us at conferences, workshops, and community events near you.</div>
+        <span class="step-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a href="resources.html" class="step-card">
+        <div class="step-num">05</div>
+        <div class="step-title">Resources</div>
+        <div class="step-desc">Peruse our research, guides, toolkits, and publications on inclusive robotics.</div>
+        <span class="step-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a href="contact.html" class="step-card">
+        <div class="step-num">06</div>
+        <div class="step-title">Get in Touch</div>
+        <div class="step-desc">Schedule a personalized consultation about how Robots for All can transform your products.</div>
+        <span class="step-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
     </div>
   </div>
-</div>
-
-
-<!-- Container (Next Steps Section) -->
-<div class="w3-content w3-container w3-padding-64" id="NextSteps">
-  <h3 class="w3-center">NEXT STEPS</h3>
-
-  <div class="w3-row-padding">
-    <h4>
-      <ul>
-        <li>Discover why <a href="universal-design.html">Universal Design wins every time</a></li>
-        <li>Learn how the <a href="consortium.html">Robots For All Consortium</a> works</li>
-        <li>Read about the <a href="experts.html">domain experts</a> we partner with</li>
-        <li>Meet us at one of our <a href="events.html">upcoming events</a></li>
-        <li>Peruse our other <a href="resources.html">resources</a></li>
-        <li>Schedule a <a href="contact.html">personalized meeting</a> with us about how Robots For All can revolutionize your robots</li>
-    </h4>
-</div>
-
-
-
-
-
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
- <!-- <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
- <div class="w3-xlarge w3-section">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-  </div>-->
-  <p>Robots for All</a></p>
+</section>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Robots for All</div>
+    <div class="footer-copy">© 2025 Robots for All. All rights reserved.</div>
+  </div>
 </footer>
  
-
-
-
-
-
 <script>
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
-// Change style of navbar on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-    var navbar = document.getElementById("myNavbar");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-    } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-    }
-}
-
-// Used to toggle the menu on small screens when clicking on the menu button
 function toggleFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
+  var x = document.getElementById("navDemo");
+  if (x) {
+    if (x.className.indexOf("w3-show") === -1) x.className += " w3-show";
+    else x.className = x.className.replace(" w3-show", "");
+  }
 }
 </script>
-
 </body>
 </html>

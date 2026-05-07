@@ -1,320 +1,918 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Universal Design</title>
+<title>Universal Design — Robots for All</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./mystyle.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
-body, html {
-  height: 100%;
-  color: #777;
-  line-height: 1.8;
-}
-
-/* Create a Parallax Effect */
-.bgimg-1, .bgimg-2, .bgimg-3 {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-/* First image (Logo. Full height) */
-.bgimg-1 {
-  background-image: url('/w3images/parallax1.jpg');
-  min-height: 100%;
-}
-
-/* Second image (Portfolio) */
-.bgimg-2 {
-  background-image: url("/w3images/parallax2.jpg");
-  min-height: 400px;
-}
-
-/* Third image (Contact) */
-.bgimg-3 {
-  background-image: url("/w3images/parallax3.jpg");
-  min-height: 400px;
-}
-
-.w3-wide {letter-spacing: 10px;}
-.w3-hover-opacity {cursor: pointer;}
-
-/* Turn off parallax scrolling for tablets and phones */
-@media only screen and (max-device-width: 1600px) {
-  .bgimg-1, .bgimg-2, .bgimg-3 {
-    background-attachment: scroll;
-    min-height: 400px;
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+  :root {
+    --teal-50: #E1F5EE;
+    --teal-100: #9FE1CB;
+    --teal-400: #1D9E75;
+    --teal-600: #0F6E56;
+    --teal-800: #085041;
+    --teal-900: #04342C;
+    --gray-50: #F1EFE8;
+    --gray-100: #D3D1C7;
+    --gray-200: #B4B2A9;
+    --gray-400: #888780;
+    --gray-600: #5F5E5A;
+    --gray-800: #444441;
+    --gray-900: #2C2C2A;
+    --white: #FAFAF8;
+    --nav-height: 68px;
+    --coral-50: #FAECE7;
+    --coral-100: #F5C4B3;
+    --coral-400: #D85A30;
+    --coral-600: #993C1D;
   }
-}
-
-.navbar {
-  overflow: hidden;
-  background-color: #333; 
-}
-
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.subnav {
-  float: left;
-  overflow: hidden;
-}
-
-.subnav .subnavbtn {
-  font-size: 16px;  
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
-
-.navbar a:hover, .subnav:hover .subnavbtn {
-  background-color: rgb(1, 123, 132);
-}
-
-.subnav-content {
-  display: none;
-  position: absolute;
-  left: 0;
-  background-color: rgb(1, 123, 132);
-  width: 100%;
-  z-index: 1;
-}
-
-.subnav-content a {
-  float: left;
-  color: white;
-  text-decoration: none;
-}
-
-.subnav-content a:hover {
-  background-color: #eee;
-  color: black;
-}
-
-.subnav:hover .subnav-content {
-  display: block;
-}
+ 
+  html { scroll-behavior: smooth; }
+ 
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    color: var(--gray-800);
+    background: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+ 
+  h1, h2, h3, h4, h5, h6,
+  .nav-logo, .footer-logo,
+  .step-num, .step-title, .hard-card-num,
+  .stat-number, .result-number, .section-label {
+  }
+ 
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-height);
+    background: rgba(250, 250, 248, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-100);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    padding: 0 2.5rem;
+    gap: 2.5rem;
+  }
+ 
+  .nav-logo {
+    font-family: 'Playfair Display', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: 0.04em;
+    color: var(--gray-900);
+    text-decoration: none;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+ 
+  .nav-logo span {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--teal-400);
+  }
+ 
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+  }
+ 
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--gray-600);
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+    white-space: nowrap;
+  }
+ 
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--gray-900); background: var(--gray-50); }
+  .nav-links a.active { font-weight: 500; }
+ 
+  .nav-cta {
+    background: var(--teal-400) !important;
+    color: #fff !important;
+    padding: 0.45rem 1.1rem !important;
+    border-radius: 6px;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--teal-600) !important; }
+ 
+  /* ── PAGE HERO ── */
+  .page-hero {
+    padding: calc(var(--nav-height) + 5rem) 2rem 5rem;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+ 
+  .page-hero-bg {
+    position: absolute;
+    top: 0; right: 0;
+    width: 480px; height: 480px;
+    background: var(--teal-50);
+    border-radius: 50%;
+    transform: translate(30%, -30%);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+ 
+  .page-hero .container { position: relative; z-index: 1; }
+ 
+  .page-hero .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal-600);
+    background: var(--teal-50);
+    border: 1px solid var(--teal-100);
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+ 
+  .page-hero .eyebrow::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--teal-400);
+  }
+ 
+  h1 {
+    font-family: 'Playfair Display', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.4rem, 5vw, 3.75rem);
+    color: var(--gray-900);
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    margin-bottom: 1.25rem;
+    max-width: 720px;
+  }
+ 
+  h1 em { font-style: normal; color: var(--teal-400); }
+ 
+  .page-hero-sub {
+    font-size: 1.1rem;
+    color: var(--gray-600);
+    max-width: 580px;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+ 
+  /* ── SHARED ── */
+  section { padding: 5.5rem 2rem; }
+  .container { max-width: 1060px; margin: 0 auto; }
+ 
+  .section-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal-600);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+ 
+  h2 {
+    font-family: 'Playfair Display', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    color: var(--gray-900);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+ 
+  .section-intro {
+    font-size: 1.025rem;
+    color: var(--gray-600);
+    max-width: 600px;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+ 
+  /* ── WHY UD ── */
+  #why {
+    border-top: 1px solid var(--gray-100);
+  }
+ 
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+ 
+  .why-img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+    background: var(--gray-50);
+    border: 1px solid var(--gray-100);
+  }
+ 
+  .why-text p {
+    font-size: 1rem;
+    color: var(--gray-600);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+ 
+  .callout-box {
+    background: var(--teal-50);
+    border-left: 3px solid var(--teal-400);
+    border-radius: 0 8px 8px 0;
+    padding: 1.1rem 1.4rem;
+    margin-top: 1.75rem;
+    font-size: 0.975rem;
+    color: var(--teal-800);
+    line-height: 1.65;
+    font-weight: 400;
+  }
+ 
+  .callout-box strong {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 0.2rem;
+    color: var(--teal-900);
+  }
+ 
+  /* ── CONSEQUENCES ── */
+  #consequences {
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-100);
+    border-bottom: 1px solid var(--gray-100);
+  }
+ 
+  .consequence-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 3.5rem;
+  }
+ 
+  .consequence-card {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+ 
+  .consequence-icon {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    background: var(--coral-50);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--coral-600);
+    font-size: 0.9rem;
+  }
+ 
+  .consequence-card h3 {
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 0.35rem;
+  }
+ 
+  .consequence-card p {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+ 
+  .consequence-card a {
+    color: var(--teal-600);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .consequence-card a:hover { text-decoration: underline; }
+ 
+  /* ── STATS STRIP ── */
+  .stats-strip {
+    background: var(--gray-900);
+    padding: 3.5rem 2rem;
+  }
+ 
+  .stats-grid {
+    max-width: 1060px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+  }
+ 
+  .stat-item { padding: 0.5rem; }
+ 
+  .stat-number {
+    font-family: 'Playfair Display', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    color: var(--teal-100);
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+  }
+ 
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--gray-200);
+    line-height: 1.5;
+  }
+ 
+  .stat-label a {
+    color: var(--teal-100);
+    text-decoration: none;
+  }
+  .stat-label a:hover { text-decoration: underline; }
+ 
+  /* ── WHY HARD ── */
+  #hard {
+    border-top: 1px solid var(--gray-100);
+  }
+ 
+  .hard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+ 
+  .hard-card {
+    border: 1px solid var(--gray-100);
+    border-radius: 12px;
+    padding: 1.75rem;
+    background: var(--white);
+  }
+ 
+  .hard-card-num {
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--teal-400);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+ 
+  .hard-card h3 {
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+ 
+  .hard-card p {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    line-height: 1.65;
+  }
+ 
+  /* ── SOLUTION ── */
+  #solution {
+    background: var(--teal-900);
+    border-top: 1px solid var(--teal-800);
+  }
+ 
+  #solution .section-label { color: var(--teal-100); }
+  #solution h2 { color: #fff; }
+  #solution .section-intro { color: var(--teal-100); }
+ 
+  .solution-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+ 
+  .solution-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1.75rem;
+    transition: background 0.2s;
+  }
+ 
+  .solution-card:hover { background: rgba(255,255,255,0.1); }
+ 
+  .solution-icon {
+    width: 36px; height: 36px;
+    background: var(--teal-400);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+ 
+  .solution-card h3 {
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.4rem;
+  }
+ 
+  .solution-card p {
+    font-size: 0.875rem;
+    color: var(--teal-100);
+    line-height: 1.6;
+  }
+ 
+  /* ── RESULTS STRIP ── */
+  .results-strip {
+    background: var(--white);
+    border-top: 1px solid var(--gray-100);
+    padding: 4rem 2rem;
+  }
+ 
+  .results-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+  }
+ 
+  .results-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+ 
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+ 
+  .result-card {
+    background: var(--gray-50);
+    border-radius: 12px;
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+    border: 1px solid var(--gray-100);
+  }
+ 
+  .result-number {
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--teal-400);
+    margin-bottom: 0.35rem;
+    line-height: 1.1;
+  }
+ 
+  .result-label {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    line-height: 1.5;
+  }
+ 
+  .results-cta {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--gray-100);
+  }
+ 
+  .results-cta h3 {
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 0.75rem;
+  }
+ 
+  .results-cta p {
+    color: var(--gray-600);
+    font-size: 1rem;
+    margin-bottom: 1.75rem;
+    font-weight: 300;
+  }
+ 
+  /* ── NEXT STEPS ── */
+  #nextsteps {
+    background: var(--gray-900);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+ 
+  #nextsteps h2 { color: #fff; }
+  #nextsteps .section-label { color: var(--teal-100); }
+  #nextsteps .section-intro { color: var(--gray-200); }
+ 
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+ 
+  .step-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1.75rem;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    position: relative;
+  }
+ 
+  .step-card:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: var(--teal-400);
+    transform: translateY(-2px);
+  }
+ 
+  .step-num {
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--teal-400);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+ 
+  .step-title {
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.4rem;
+  }
+ 
+  .step-desc { font-size: 0.875rem; color: var(--gray-200); line-height: 1.6; }
+ 
+  .step-arrow {
+    position: absolute;
+    top: 1.5rem; right: 1.5rem;
+    color: var(--gray-400);
+    font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+  .step-card:hover .step-arrow { color: var(--teal-400); }
+ 
+  /* ── BUTTONS ── */
+  .btn-primary {
+    background: var(--teal-400);
+    color: #fff;
+    padding: 0.8rem 1.75rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-primary:hover { background: var(--teal-600); transform: translateY(-1px); }
+ 
+  .btn-secondary {
+    background: transparent;
+    color: var(--gray-800);
+    padding: 0.8rem 1.75rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.95rem;
+    border: 1.5px solid var(--gray-200);
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-secondary:hover { border-color: var(--gray-400); background: var(--gray-50); }
+ 
+  /* ── FOOTER ── */
+  footer {
+    background: var(--gray-900);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 2.5rem 2rem;
+  }
+ 
+  .footer-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+ 
+  .footer-logo {
+    font-family: 'Playfair Display', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+  }
+ 
+  .footer-copy { font-size: 0.82rem; color: var(--gray-400); }
+ 
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem; gap: 0; }
+    .nav-links { display: none; }
+    .why-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .results-grid { grid-template-columns: repeat(2, 1fr); }
+    section { padding: 4rem 1.25rem; }
+    .stats-strip, .results-strip { padding: 3rem 1.25rem; }
+  }
 </style>
 </head>
 <body>
-
-<div class="w3-top">
-  <div class="navbar">
-
-    <a href="index.html">Home</a>
-    <a href="universaldesign.html">Universal Design</a>
-    <a href="consortium.html">Consortium</a>
-    <a href="experts.html">Experts</a>
-    <a href="events.html">Events</a>
-    <a href="resources.html">Resources</a>
-    <a href="contact.html">Contact</a>
-  </div>
-
-
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="index.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Home</a>
-    <a href="universaldesign.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Universal Design</a>
-    <a href="consortium.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Consortium</a>
-    <a href="experts.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Experts</a>
-    <a href="events.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Events</a>
-    <a href="resources.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Resources</a>
-    <a href="contact.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Contact</a>
-    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
-  </div>
-</div>
-
-<!-- First Parallax Image with Logo Text -->
-<div class="bgimg-1 w3-display-container w3-opacity-min" id="UniversalDesign">
-  <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">UNIVERSAL <span class="w3-hide-small">DESIGN </span> </span>
+ 
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span></span>Robots for All
+  </a>
+  <ul class="nav-links">
+    <li><a href="universaldesign.html" class="active">Universal Design</a></li>
+    <li><a href="consortium.html">Consortium</a></li>
+    <li><a href="experts.html">Experts</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+ 
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container">
+    <div class="eyebrow">Our Approach</div>
+    <h1>Universal Design <em>wins</em> every time.</h1>
+    <p class="page-hero-sub">
+      Designing robots that work for everyone isn't just the right thing to do — it's the smart business decision. Better usability means fewer incidents, broader adoption, and stronger revenue.
+    </p>
   </div>
 </div>
-
-<!-- Container (#WhyUniversalDesign Section) -->
-<div class="w3-content w3-container w3-padding-64" id="WhyUniversalDesign">
-  <div class="w3-row">
-    <h3 class="w3-center">Why Universal Design Matters</h3>
-    <div class="w3-col m6 w3-center w3-padding-large">
-      <img src="img/commandterminal.png" class="w3-round w3-image" alt="Command terminal prompt: a black screen with text" width="500">
-    </div>
-
-    <div class="w3-col m6 w3-padding-large">
-      <p>Before Mac and Windows interfaces, computers had command terminals. These terminals required high levels of skill to be used well. Now, most anyone can turn on a computer and start up the Internet or a game, because the terminal is made for everyone.</p>
-      <p>Our society is currently in the “command terminal” days of public robots. Robots For All is bring us to the Windows of robots.</p>
+ 
+<!-- WHY UNIVERSAL DESIGN -->
+<section id="why">
+  <div class="container">
+    <div class="why-grid">
+      <div>
+        <img src="img/commandterminal.png" class="why-img" alt="A command terminal prompt — black screen with white text">
       </div>
+      <div class="why-text">
+        <p class="section-label">The Big Picture</p>
+        <h2>We're in the "command terminal" era of public robots.</h2>
+        <p>
+          Before Mac and Windows interfaces, computers required high levels of skill to operate. Command terminals were powerful — but inaccessible to most people. Universal design changed everything: today, nearly anyone can turn on a computer and start browsing the internet.
+        </p>
+        <p>
+          Our society is at the same inflection point with public robots. Most require specialized interaction, ignore diverse user needs, and were never tested outside a narrow demographic.
+        </p>
+        <div class="callout-box">
+          <strong>Robots for All is building the Windows moment for robotics.</strong>
+          We're developing the standards, tools, and expertise that transform robots from specialist equipment into technology that truly works for everyone.
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-
-<!-- Container (#RealWorldConsequences Section) -->
-<div class="w3-content w3-container w3-padding-64" id="RealWorldConsequences">
-  <h3 class="w3-center">Real-World Consequences</h3>
-  <div class="w3-row">
-      <p>Real-world consequences of robots that are not built for everyone
-      <ul>
-        <li><a href="https://roboticsandautomationnews.com/2025/11/27/chicago-residents-push-to-pause-delivery-robot-pilot-over-safety-and-accessibility-concerns/97019/">Pedestrians injured</a> by public delivery robots that use sidewalks.</li>
-        <li><a href="https://www.wtae.com/article/food-delivery-robot-pauses-operations-after-monday-incident/29554279">Wheelchair users trapped</a> on busy roads.</li>
-        <li><a href="https://www.bbc.com/news/world-asia-67354709">Death</a></li>
-      </ul>
+</section>
+ 
+<!-- REAL-WORLD CONSEQUENCES -->
+<section id="consequences">
+  <div class="container">
+    <p class="section-label">The Stakes</p>
+    <h2>What happens when robots aren't built for everyone.</h2>
+    <p class="section-intro">
+      Poorly designed robots don't just frustrate users — they cause real harm, invite legal liability, and erode public trust in automation.
+    </p>
+ 
+    <div class="consequence-list">
+      <div class="consequence-card">
+        <div class="consequence-icon"><i class="fa-solid fa-person-walking"></i></div>
+        <div>
+          <h3>Pedestrians injured</h3>
+          <p>Public delivery robots using sidewalks have collided with and injured pedestrians. <a href="https://roboticsandautomationnews.com/2025/11/27/chicago-residents-push-to-pause-delivery-robot-pilot-over-safety-and-accessibility-concerns/97019/" target="_blank">Pilots have been paused</a> over safety and accessibility concerns.</p>
+        </div>
+      </div>
+      <div class="consequence-card">
+        <div class="consequence-icon"><i class="fa-solid fa-wheelchair"></i></div>
+        <div>
+          <h3>Wheelchair users trapped</h3>
+          <p>Robots blocking sidewalks have forced wheelchair users into <a href="https://www.wtae.com/article/food-delivery-robot-pauses-operations-after-monday-incident/29554279" target="_blank">busy roads</a>, creating dangerous situations.</p>
+        </div>
+      </div>
+      <div class="consequence-card">
+        <div class="consequence-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        <div>
+          <h3>Fatal incidents</h3>
+          <p>Robots operating in environments not designed for them have been <a href="https://www.bbc.com/news/world-asia-67354709" target="_blank">linked to fatalities</a>, drawing global scrutiny.</p>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-
-<!-- Container (#BusinessConsequences Section) -->
-<div class="w3-row w3-center w3-dark-grey w3-padding-16">
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">Robots removed</span><br>
-    due to <a href="https://roboticsandautomationnews.com/2025/11/27/chicago-residents-push-to-pause-delivery-robot-pilot-over-safety-and-accessibility-concerns/97019/">public backlash</a>
-  </div>
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">26%</span><br>
-    Increased revenue
-  </div>
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">$100,000</span><br>
-    Settlement costs avoided
-  </div>
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">$51 million payout</span><br>
-    <a href="https://finance.yahoo.com/news/tesla-faces-51-million-lawsuit-122431460.html">a for robot-caused devastating injury</a>
-  </div>
-</div>
-
-<!-- Container (#HardToSolve Section) -->
-<div class="w3-content w3-container w3-padding-64" id="HardToSolve">
-  <h3 class="w3-center">Why is this is hard to solve for robots</h3>
-  <div class="w3-row-padding">
-
-      <ul>
-        <li>Insufficient design standards for robots</li>
-        <li>Requires rare, cross-disciplinary expertise</li>
-        <li>Not just user experience; involves robot behavior & real-world impact</li>
-      </ul>
-  </div>
-</div>
-
-
-<!-- Container (#MakeItEasy Section) -->
-<div class="w3-content w3-container w3-padding-64" id="MakeItEasy">
-  <h3 class="w3-center">How we make it easy</h3>
-  <div class="w3-row-padding">
-      <p>By joining the consortium, you gain access to:</p>
-      <ul>
-        <li>Most recent robot guidelines we develop</li>
-        <li>Usability reviews of your robot, with defined next steps</li>
-        <li>Consultation sessions with domain experts for your unique robot</li>
-        <li>Have a voice in what themes and research questions experts study next</li>
-      </ul>
+</section>
+ 
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-number">Removed</div>
+      <div class="stat-label">Robots pulled from deployment due to <a href="https://roboticsandautomationnews.com/2025/11/27/chicago-residents-push-to-pause-delivery-robot-pilot-over-safety-and-accessibility-concerns/97019/" target="_blank">public backlash</a></div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">$51M</div>
+      <div class="stat-label"><a href="https://finance.yahoo.com/news/tesla-faces-51-million-lawsuit-122431460.html" target="_blank">Lawsuit payout</a> for a single robot-caused injury</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">$100K+</div>
+      <div class="stat-label">Settlement costs per ADA accessibility violation</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">Lost trust</div>
+      <div class="stat-label">Public confidence in automation erodes with every incident</div>
     </div>
   </div>
 </div>
-
-
-
-
-<div class="w3-row w3-center w3-dark-grey w3-padding-16">
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">20%</span><br>
-    More customers
+ 
+<!-- WHY IT'S HARD -->
+<section id="hard">
+  <div class="container">
+    <p class="section-label">The Challenge</p>
+    <h2>Why this is difficult to solve on your own.</h2>
+    <p class="section-intro">
+      Universal design for robots isn't a checklist — it requires rare expertise, cross-disciplinary knowledge, and standards that barely exist yet.
+    </p>
+ 
+    <div class="hard-cards">
+      <div class="hard-card">
+        <div class="hard-card-num">01</div>
+        <h3>No established standards</h3>
+        <p>Design guidelines for robot usability and accessibility are still nascent. Most companies are building from scratch, without a roadmap.</p>
+      </div>
+      <div class="hard-card">
+        <div class="hard-card-num">02</div>
+        <h3>Rare cross-disciplinary expertise</h3>
+        <p>Solving this requires simultaneous fluency in human-computer interaction, robotics engineering, disability studies, and public safety.</p>
+      </div>
+      <div class="hard-card">
+        <div class="hard-card-num">03</div>
+        <h3>Beyond UX — real-world impact</h3>
+        <p>Unlike software, robots move through physical spaces and affect people who never chose to interact with them. The stakes are higher.</p>
+      </div>
+    </div>
   </div>
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">26%</span><br>
-    Increased revenue
+</section>
+ 
+<!-- HOW WE MAKE IT EASY -->
+<section id="solution">
+  <div class="container">
+    <p class="section-label">Our Solution</p>
+    <h2>How we make universal design accessible to your team.</h2>
+    <p class="section-intro">By joining the consortium, you gain immediate access to expert resources, research, and hands-on guidance tailored to your robot.</p>
+ 
+    <div class="solution-grid">
+      <div class="solution-card">
+        <div class="solution-icon"><i class="fa-solid fa-book-open"></i></div>
+        <h3>Up-to-date guidelines</h3>
+        <p>Access the latest robot usability and accessibility standards as we develop them — before they become industry requirements.</p>
+      </div>
+      <div class="solution-card">
+        <div class="solution-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <h3>Usability reviews</h3>
+        <p>Get structured evaluations of your robot with clear, prioritized next steps from our expert reviewers.</p>
+      </div>
+      <div class="solution-card">
+        <div class="solution-icon"><i class="fa-solid fa-people-group"></i></div>
+        <h3>Expert consultations</h3>
+        <p>Work directly with domain experts matched to your robot's specific context, challenges, and user population.</p>
+      </div>
+      <div class="solution-card">
+        <div class="solution-icon"><i class="fa-solid fa-bullhorn"></i></div>
+        <h3>Shape the research agenda</h3>
+        <p>Have a voice in what questions experts tackle next — your operational needs help drive the field forward.</p>
+      </div>
+    </div>
   </div>
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">$100,000</span><br>
-    Settlement costs avoided
-  </div>
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">$1,000</span><br>
-    Per robot savings in remediation costs
+</section>
+ 
+<!-- RESULTS STRIP -->
+<div class="results-strip">
+  <div class="results-inner">
+    <div class="results-header">
+      <p class="section-label" style="text-align:center;">The Business Case</p>
+      <h2 style="text-align:center;">The ROI of building for everyone.</h2>
+    </div>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-number">20%</div>
+        <div class="result-label">More potential customers reached</div>
+      </div>
+      <div class="result-card">
+        <div class="result-number">26%</div>
+        <div class="result-label">Increased revenue from broader adoption</div>
+      </div>
+      <div class="result-card">
+        <div class="result-number">$100K</div>
+        <div class="result-label">Settlement costs avoided per incident</div>
+      </div>
+      <div class="result-card">
+        <div class="result-number">$1,000</div>
+        <div class="result-label">Saved per robot in remediation costs</div>
+      </div>
+    </div>
+ 
+    <div class="results-cta">
+      <h3>Ready to set the standard for robot usability?</h3>
+      <p>Join the consortium and get ahead of regulations, liability, and competition.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="consortium.html" class="btn-primary">
+          Join the Consortium <i class="fa-solid fa-arrow-right" style="font-size:0.8em;"></i>
+        </a>
+        <a href="contact.html" class="btn-secondary">Schedule a Meeting</a>
+      </div>
+    </div>
   </div>
 </div>
-
-<div class="w3-row w3-center w3-dark-grey w3-padding-16">
-  <h3 class="w3-center">Set the standard for robot usability</h3>
-</div>
-
-<!-- Container (Next Steps Section) -->
-<div class="w3-content w3-container w3-padding-64" id="NextSteps">
-  <h3 class="w3-center">NEXT STEPS</h3>
-
-  <div class="w3-row-padding">
-      <ul>
-        <li>Learn how the <a href="consortium.html">Robots For All Consortium</a> works</li>
-        <li>Read about the <a href="experts.html">domain experts</a> we partner with</li>
-        <li>Meet us at one of our <a href="events.html">upcoming events</a></li>
-        <li>Peruse our other <a href="resources.html">resources</a></li>
-        <li>Schedule a <a href="contact.html">personalized meeting</a> with us about how Robots For All can revolutionize your robots</li>
-</div>
-
-
-
-
-
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
- <!-- <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
- <div class="w3-xlarge w3-section">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-  </div>-->
-  <p>Robots for All</a></p>
+ 
+<!-- NEXT STEPS -->
+<section id="nextsteps">
+  <div class="container">
+    <p class="section-label">Keep exploring</p>
+    <h2>What's next for you</h2>
+    <p class="section-intro">Dig deeper into how Robots for All can work for your organization.</p>
+ 
+    <div class="steps-grid">
+      <a href="consortium.html" class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-title">The Consortium</div>
+        <div class="step-desc">Learn how our collaborative network operates and how to join.</div>
+        <span class="step-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a href="experts.html" class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-title">Domain Experts</div>
+        <div class="step-desc">Meet the specialists in accessibility, HCI, and robotics we partner with.</div>
+        <span class="step-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a href="events.html" class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-title">Upcoming Events</div>
+        <div class="step-desc">Find us at conferences and workshops near you.</div>
+        <span class="step-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a href="resources.html" class="step-card">
+        <div class="step-num">04</div>
+        <div class="step-title">Resources</div>
+        <div class="step-desc">Browse our research, toolkits, and publications on inclusive robotics.</div>
+        <span class="step-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">Robots for All</a>
+    <div class="footer-copy">© 2025 Robots for All. All rights reserved.</div>
+  </div>
 </footer>
  
-
-
-
-
-
 <script>
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
-// Change style of navbar on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-    var navbar = document.getElementById("myNavbar");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-    } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-    }
-}
-
-// Used to toggle the menu on small screens when clicking on the menu button
 function toggleFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
+  var x = document.getElementById("navDemo");
+  if (x) {
+    if (x.className.indexOf("w3-show") === -1) x.className += " w3-show";
+    else x.className = x.className.replace(" w3-show", "");
+  }
 }
 </script>
-
 </body>
 </html>
+ 

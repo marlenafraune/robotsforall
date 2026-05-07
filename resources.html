@@ -1,216 +1,688 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Resources</title>
+<title>Resources — Robots for All</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./mystyle.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
-body, html {
-  height: 100%;
-  color: #777;
-  line-height: 1.8;
-}
-
-/* Create a Parallax Effect */
-.bgimg-1, .bgimg-2, .bgimg-3 {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-/* First image (Logo. Full height) */
-.bgimg-1 {
-  background-image: url('/w3images/parallax1.jpg');
-  min-height: 100%;
-}
-
-/* Second image (Portfolio) */
-.bgimg-2 {
-  background-image: url("/w3images/parallax2.jpg");
-  min-height: 400px;
-}
-
-/* Third image (Contact) */
-.bgimg-3 {
-  background-image: url("/w3images/parallax3.jpg");
-  min-height: 400px;
-}
-
-.w3-wide {letter-spacing: 10px;}
-.w3-hover-opacity {cursor: pointer;}
-
-/* Turn off parallax scrolling for tablets and phones */
-@media only screen and (max-device-width: 1600px) {
-  .bgimg-1, .bgimg-2, .bgimg-3 {
-    background-attachment: scroll;
-    min-height: 400px;
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+  :root {
+    --teal-50: #E1F5EE;
+    --teal-100: #9FE1CB;
+    --teal-400: #1D9E75;
+    --teal-600: #0F6E56;
+    --teal-800: #085041;
+    --teal-900: #04342C;
+    --gray-50: #F1EFE8;
+    --gray-100: #D3D1C7;
+    --gray-200: #B4B2A9;
+    --gray-400: #888780;
+    --gray-600: #5F5E5A;
+    --gray-800: #444441;
+    --gray-900: #2C2C2A;
+    --white: #FAFAF8;
+    --nav-height: 68px;
+    --amber-50: #FAEEDA;
+    --amber-100: #FAC775;
+    --amber-400: #BA7517;
+    --amber-600: #854F0B;
   }
-}
-
-.navbar {
-  overflow: hidden;
-  background-color: #333; 
-}
-
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.subnav {
-  float: left;
-  overflow: hidden;
-}
-
-.subnav .subnavbtn {
-  font-size: 16px;  
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
-
-.navbar a:hover, .subnav:hover .subnavbtn {
-  background-color: rgb(1, 123, 132);
-}
-
-.subnav-content {
-  display: none;
-  position: absolute;
-  left: 0;
-  background-color: rgb(1, 123, 132);
-  width: 100%;
-  z-index: 1;
-}
-
-.subnav-content a {
-  float: left;
-  color: white;
-  text-decoration: none;
-}
-
-.subnav-content a:hover {
-  background-color: #eee;
-  color: black;
-}
-
-.subnav:hover .subnav-content {
-  display: block;
-}
+ 
+  html { scroll-behavior: smooth; }
+ 
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    color: var(--gray-800);
+    background: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+ 
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-height);
+    background: rgba(250, 250, 248, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-100);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    padding: 0 2.5rem;
+    gap: 2.5rem;
+  }
+ 
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: 0.04em;
+    color: var(--gray-900);
+    text-decoration: none;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+ 
+  .nav-logo span {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--teal-400);
+  }
+ 
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+  }
+ 
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--gray-600);
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+    white-space: nowrap;
+  }
+ 
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--gray-900); background: var(--gray-50); }
+  .nav-links a.active { font-weight: 500; }
+ 
+  .nav-cta {
+    background: var(--teal-400) !important;
+    color: #fff !important;
+    padding: 0.45rem 1.1rem !important;
+    border-radius: 6px;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--teal-600) !important; }
+ 
+  /* ── PAGE HERO ── */
+  .page-hero {
+    padding: calc(var(--nav-height) + 5rem) 2rem 5rem;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+ 
+  .page-hero-bg {
+    position: absolute;
+    top: 0; right: 0;
+    width: 480px; height: 480px;
+    background: var(--teal-50);
+    border-radius: 50%;
+    transform: translate(30%, -30%);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+ 
+  .page-hero .container { position: relative; z-index: 1; }
+ 
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal-600);
+    background: var(--teal-50);
+    border: 1px solid var(--teal-100);
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+ 
+  .eyebrow::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--teal-400);
+  }
+ 
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: clamp(2.4rem, 5vw, 3.75rem);
+    color: var(--gray-900);
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    margin-bottom: 1.25rem;
+    max-width: 720px;
+  }
+ 
+  h1 em { font-style: normal; color: var(--teal-400); }
+ 
+  .page-hero-sub {
+    font-size: 1.1rem;
+    color: var(--gray-600);
+    max-width: 580px;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+ 
+  /* ── SHARED ── */
+  section { padding: 5.5rem 2rem; }
+  .container { max-width: 1060px; margin: 0 auto; }
+ 
+  .section-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal-600);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+ 
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    color: var(--gray-900);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+ 
+  .section-intro {
+    font-size: 1.025rem;
+    color: var(--gray-600);
+    max-width: 620px;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+ 
+  /* ── RESOURCE CARDS ── */
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+ 
+  .resource-card {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 12px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+ 
+  a.resource-card:hover {
+    border-color: var(--teal-400);
+    transform: translateY(-2px);
+  }
+ 
+  .resource-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+ 
+  .resource-icon {
+    width: 40px; height: 40px;
+    background: var(--teal-50);
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--teal-600);
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+ 
+  .resource-icon.coming {
+    background: var(--gray-50);
+    color: var(--gray-400);
+  }
+ 
+  .resource-illustration {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+  }
+ 
+  .resource-badge {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border-radius: 100px;
+    flex-shrink: 0;
+  }
+ 
+  .resource-badge.live {
+    background: var(--teal-50);
+    color: var(--teal-600);
+    border: 1px solid var(--teal-100);
+  }
+ 
+  .resource-badge.soon {
+    background: var(--amber-50);
+    color: var(--amber-600);
+    border: 1px solid var(--amber-100);
+  }
+ 
+  .resource-badge.future {
+    background: var(--gray-50);
+    color: var(--gray-400);
+    border: 1px solid var(--gray-100);
+  }
+ 
+  .resource-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    line-height: 1.3;
+  }
+ 
+  .resource-card p {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    line-height: 1.65;
+    flex: 1;
+  }
+ 
+  .resource-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--teal-600);
+    margin-top: 0.25rem;
+  }
+ 
+  /* ── EXTERNAL LINKS SECTION ── */
+  #external {
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-100);
+    border-bottom: 1px solid var(--gray-100);
+  }
+ 
+  .link-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+ 
+  .link-row {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+ 
+  .link-row:hover {
+    border-color: var(--teal-400);
+    transform: translateY(-1px);
+  }
+ 
+  .link-row-icon {
+    width: 40px; height: 40px;
+    background: var(--teal-50);
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--teal-600);
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+ 
+  .link-row-body { flex: 1; }
+ 
+  .link-row-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 0.2rem;
+  }
+ 
+  .link-row-body p {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    line-height: 1.5;
+  }
+ 
+  .link-row-arrow {
+    color: var(--gray-300);
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+ 
+  .link-row:hover .link-row-arrow { color: var(--teal-400); }
+ 
+  /* ── NEXT STEPS ── */
+  #nextsteps {
+    background: var(--gray-900);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 5.5rem 2rem;
+  }
+ 
+  #nextsteps h2 { color: #fff; }
+  #nextsteps .section-label { color: var(--teal-100); }
+  #nextsteps .section-intro { color: var(--gray-200); }
+ 
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+ 
+  .step-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1.75rem;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    position: relative;
+  }
+ 
+  .step-card:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: var(--teal-400);
+    transform: translateY(-2px);
+  }
+ 
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--teal-400);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+ 
+  .step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.4rem;
+  }
+ 
+  .step-desc { font-size: 0.875rem; color: var(--gray-200); line-height: 1.6; }
+ 
+  .step-arrow {
+    position: absolute;
+    top: 1.5rem; right: 1.5rem;
+    color: var(--gray-400);
+    font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+  .step-card:hover .step-arrow { color: var(--teal-400); }
+ 
+  /* ── FOOTER ── */
+  footer {
+    background: var(--gray-900);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 2.5rem 2rem;
+  }
+ 
+  .footer-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+ 
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+  }
+ 
+  .footer-copy { font-size: 0.82rem; color: var(--gray-400); }
+ 
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem; gap: 0; }
+    .nav-links { display: none; }
+    section, #nextsteps { padding: 4rem 1.25rem; }
+    .resource-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
-
-<div class="w3-top">
-  <div class="navbar">
-
-    <a href="index.html">Home</a>
-    <a href="universaldesign.html">Universal Design</a>
-    <a href="consortium.html">Consortium</a>
-    <a href="experts.html">Experts</a>
-    <a href="events.html">Events</a>
-    <a href="resources.html">Resources</a>
-    <a href="contact.html">Contact</a>
-  </div>
-
-
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="index.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Home</a>
-    <a href="universaldesign.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Universal Design</a>
-    <a href="consortium.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Consortium</a>
-    <a href="experts.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Experts</a>
-    <a href="events.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Events</a>
-    <a href="resources.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Resources</a>
-    <a href="contact.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Contact</a>
-    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
-  </div>
-</div>
-
-<!-- First Parallax Image with Logo Text -->
-<div class="bgimg-1 w3-display-container w3-opacity-min" id="Resources">
-  <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">RESOURCES</span>
+ 
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span></span>Robots for All
+  </a>
+  <ul class="nav-links">
+    <li><a href="universaldesign.html">Universal Design</a></li>
+    <li><a href="consortium.html">Consortium</a></li>
+    <li><a href="experts.html">Experts</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="resources.html" class="active">Resources</a></li>
+    <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+ 
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container">
+    <div class="eyebrow">Tools &amp; references</div>
+    <h1>Resources for <em>accessible robotics</em></h1>
+    <p class="page-hero-sub">
+      Guidelines, reports, and trusted external references to help your organization design and deploy robots that work for everyone.
+    </p>
   </div>
 </div>
-
-<!-- Container (#WhyUniversalDesign Section) -->
-<div class="w3-content w3-container w3-padding-64" id="WhatItIs">
-  <h3 class="w3-center">What it is</h3>
-  <div class="w3-row">
-    <div class="w3-col m6 w3-center w3-padding-large">
-      <img src="img/HospitalityRobot.jpg" class="w3-round w3-image" alt="Photo of Me" width="500" height="333">
-    </div>
-
-    <div class="w3-col m6 w3-padding-large">
-      <p>Coming Soon</p>
+ 
+<!-- OUR RESOURCES -->
+<section id="our-resources">
+  <div class="container">
+    <p class="section-label">Robots For All</p>
+    <h2>Our resources</h2>
+    <p class="section-intro">Materials developed by the Robots for All team and consortium — expanding as our research and guidelines grow.</p>
+ 
+    <div class="resource-grid">
+ 
+      <!-- Experts — Available Now -->
+      <a href="experts.html" class="resource-card">
+        <div class="resource-card-top">
+          <svg class="resource-illustration" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Consulting partnership illustration">
+            <circle cx="28" cy="22" r="10" fill="#E1F5EE" stroke="#9FE1CB" stroke-width="1.5"/>
+            <circle cx="28" cy="22" r="6" fill="#1D9E75"/>
+            <circle cx="52" cy="22" r="10" fill="#E1F5EE" stroke="#9FE1CB" stroke-width="1.5"/>
+            <circle cx="52" cy="22" r="6" fill="#085041"/>
+            <path d="M10 58 C10 46 20 40 28 40 C34 40 38 42 40 44 C42 42 46 40 52 40 C60 40 70 46 70 58" stroke="#1D9E75" stroke-width="2" stroke-linecap="round" fill="#E1F5EE"/>
+            <path d="M34 52 L38 56 L46 48" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <span class="resource-badge live">Available Now</span>
+        </div>
+        <h3>Our Experts</h3>
+        <p>Connect with our team to receive targeted guidance on your robot's accessibility — and a clear understanding of what it will take to make it work for everyone.</p>
+        <span class="resource-link">
+          Meet the team <i class="fa-solid fa-arrow-right" style="font-size:0.75em;"></i>
+        </span>
+      </a>
+ 
+      <!-- Accessibility Audit — Coming Soon -->
+      <div class="resource-card">
+        <div class="resource-card-top">
+          <svg class="resource-illustration" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Accessibility audit illustration">
+            <rect x="14" y="10" width="36" height="44" rx="4" fill="#E1F5EE" stroke="#9FE1CB" stroke-width="1.5"/>
+            <line x1="22" y1="24" x2="42" y2="24" stroke="#9FE1CB" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="22" y1="32" x2="42" y2="32" stroke="#9FE1CB" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="22" y1="40" x2="34" y2="40" stroke="#9FE1CB" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="55" cy="52" r="16" fill="#E1F5EE" stroke="#9FE1CB" stroke-width="1.5"/>
+            <circle cx="55" cy="52" r="9" fill="none" stroke="#1D9E75" stroke-width="2"/>
+            <line x1="61" y1="62" x2="68" y2="69" stroke="#085041" stroke-width="3" stroke-linecap="round"/>
+            <line x1="51" y1="52" x2="55" y2="56" stroke="#1D9E75" stroke-width="2" stroke-linecap="round"/>
+            <line x1="55" y1="56" x2="60" y2="48" stroke="#1D9E75" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span class="resource-badge soon">Coming Soon</span>
+        </div>
+        <h3>Accessibility Audit</h3>
+        <p>One of our experts will conduct a structured review of your robot against our accessibility guidelines, delivering concrete, prioritized recommendations to guide your next steps.</p>
       </div>
+ 
+      <!-- Accessibility Guidelines — Coming Soon -->
+      <div class="resource-card">
+        <div class="resource-card-top">
+          <svg class="resource-illustration" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Accessibility guidelines illustration">
+            <rect x="14" y="8" width="38" height="50" rx="4" fill="#E1F5EE" stroke="#9FE1CB" stroke-width="1.5"/>
+            <rect x="14" y="8" width="38" height="50" rx="4" fill="#E1F5EE"/>
+            <line x1="22" y1="22" x2="44" y2="22" stroke="#1D9E75" stroke-width="2" stroke-linecap="round"/>
+            <line x1="22" y1="30" x2="44" y2="30" stroke="#9FE1CB" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="22" y1="38" x2="36" y2="38" stroke="#9FE1CB" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="54" cy="54" r="14" fill="#1D9E75"/>
+            <polyline points="47,54 52,59 62,49" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <span class="resource-badge soon">Coming Soon</span>
+        </div>
+        <h3>Robot Accessibility Guidelines</h3>
+        <p>Our flagship resource — a practical, research-backed set of guidelines for designing and deploying robots that are accessible to people of all abilities. Currently in development.</p>
+      </div>
+ 
+      <!-- High-Level Reports — Future -->
+      <div class="resource-card">
+        <div class="resource-card-top">
+          <svg class="resource-illustration" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Research reports illustration">
+            <rect x="10" y="46" width="12" height="22" rx="2" fill="#9FE1CB"/>
+            <rect x="26" y="34" width="12" height="34" rx="2" fill="#1D9E75"/>
+            <rect x="42" y="24" width="12" height="44" rx="2" fill="#085041"/>
+            <rect x="58" y="38" width="12" height="30" rx="2" fill="#9FE1CB"/>
+            <line x1="8" y1="70" x2="72" y2="70" stroke="#B4B2A9" stroke-width="1.5" stroke-linecap="round"/>
+            <polyline points="16,44 32,30 48,20 64,34" stroke="#1D9E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="16" cy="44" r="3" fill="#1D9E75"/>
+            <circle cx="32" cy="30" r="3" fill="#1D9E75"/>
+            <circle cx="48" cy="20" r="3" fill="#1D9E75"/>
+            <circle cx="64" cy="34" r="3" fill="#1D9E75"/>
+          </svg>
+          <span class="resource-badge future">Future</span>
+        </div>
+        <h3>Research Reports</h3>
+        <p>Summaries of findings from consortium-funded research and Focused Accessibility Projects, made available to the wider community. Coming in a future phase.</p>
+      </div>
+ 
+    </div>
   </div>
-</div>
-
-
-
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
- <!-- <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
- <div class="w3-xlarge w3-section">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-  </div>-->
-  <p>Robots for All</a></p>
+</section>
+ 
+<!-- EXTERNAL LINKS -->
+<section id="external">
+  <div class="container">
+    <p class="section-label">External references</p>
+    <h2>Other accessibility resources</h2>
+    <p class="section-intro">Trusted standards bodies and guidelines that inform our work and are useful for any organization working on accessible design.</p>
+ 
+    <div class="link-list">
+ 
+      <a href="https://www.access-board.gov/" target="_blank" class="link-row">
+        <div class="link-row-icon"><i class="fa-solid fa-universal-access"></i></div>
+        <div class="link-row-body">
+          <h3>U.S. Access Board</h3>
+          <p>Federal agency that develops and maintains accessibility guidelines and standards for the built environment, information and communication technology, and more.</p>
+        </div>
+        <i class="fa-solid fa-arrow-up-right-from-square link-row-arrow"></i>
+      </a>
+ 
+      <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" class="link-row">
+        <div class="link-row-icon"><i class="fa-solid fa-globe"></i></div>
+        <div class="link-row-body">
+          <h3>Web Content Accessibility Guidelines (WCAG)</h3>
+          <p>The international standard for web and digital accessibility, developed by the W3C Web Accessibility Initiative. A foundational reference for accessible technology design.</p>
+        </div>
+        <i class="fa-solid fa-arrow-up-right-from-square link-row-arrow"></i>
+      </a>
+ 
+    </div>
+  </div>
+</section>
+ 
+<!-- NEXT STEPS -->
+<section id="nextsteps">
+  <div class="container">
+    <p class="section-label">Keep exploring</p>
+    <h2>What's next for you</h2>
+    <p class="section-intro">Find out more about what Robots for All does and how to get involved.</p>
+ 
+    <div class="steps-grid">
+      <a href="universaldesign.html" class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-title">Universal Design</div>
+        <div class="step-desc">Understand why designing for everyone is the smart business move.</div>
+        <span class="step-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a href="consortium.html" class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-title">The Consortium</div>
+        <div class="step-desc">Learn how our collaborative network operates and how to join.</div>
+        <span class="step-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a href="experts.html" class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-title">Our Experts</div>
+        <div class="step-desc">Meet the researchers and accessibility specialists behind our work.</div>
+        <span class="step-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a href="contact.html" class="step-card">
+        <div class="step-num">04</div>
+        <div class="step-title">Contact Us</div>
+        <div class="step-desc">Schedule a meeting to discuss how Robots for All can work for you.</div>
+        <span class="step-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">Robots for All</a>
+    <div class="footer-copy">© 2025 Robots for All. All rights reserved.</div>
+  </div>
 </footer>
  
-
-
-
-
-
 <script>
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
-// Change style of navbar on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-    var navbar = document.getElementById("myNavbar");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-    } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-    }
-}
-
-// Used to toggle the menu on small screens when clicking on the menu button
 function toggleFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
+  var x = document.getElementById("navDemo");
+  if (x) {
+    if (x.className.indexOf("w3-show") === -1) x.className += " w3-show";
+    else x.className = x.className.replace(" w3-show", "");
+  }
 }
 </script>
-
 </body>
 </html>
