@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Experts — Robots for All</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+  :root {
+    --teal-50: #E1F5EE;
+    --teal-100: #9FE1CB;
+    --teal-400: #1D9E75;
+    --teal-600: #0F6E56;
+    --teal-800: #085041;
+    --teal-900: #04342C;
+    --gray-50: #F1EFE8;
+    --gray-100: #D3D1C7;
+    --gray-200: #B4B2A9;
+    --gray-400: #888780;
+    --gray-600: #5F5E5A;
+    --gray-800: #444441;
+    --gray-900: #2C2C2A;
+    --white: #FAFAF8;
+    --nav-height: 68px;
+  }
+ 
+  html { scroll-behavior: smooth; }
+ 
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    color: var(--gray-800);
+    background: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+ 
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-height);
+    background: rgba(250, 250, 248, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-100);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    padding: 0 2.5rem;
+    gap: 2.5rem;
+  }
+ 
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: 0.04em;
+    color: var(--gray-900);
+    text-decoration: none;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+ 
+  .nav-logo span {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--teal-400);
+  }
+ 
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+  }
+ 
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--gray-600);
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+    white-space: nowrap;
+  }
+ 
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--gray-900); background: var(--gray-50); }
+  .nav-links a.active { font-weight: 500; }
+ 
+  .nav-cta {
+    background: var(--teal-400) !important;
+    color: #fff !important;
+    padding: 0.45rem 1.1rem !important;
+    border-radius: 6px;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--teal-600) !important; }
+ 
+  /* ── PAGE HERO ── */
+  .page-hero {
+    padding: calc(var(--nav-height) + 5rem) 2rem 5rem;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+ 
+  .page-hero-bg {
+    position: absolute;
+    top: 0; right: 0;
+    width: 480px; height: 480px;
+    background: var(--teal-50);
+    border-radius: 50%;
+    transform: translate(30%, -30%);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+ 
+  .page-hero .container { position: relative; z-index: 1; }
+ 
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal-600);
+    background: var(--teal-50);
+    border: 1px solid var(--teal-100);
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+ 
+  .eyebrow::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--teal-400);
+  }
+ 
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: clamp(2.4rem, 5vw, 3.75rem);
+    color: var(--gray-900);
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    margin-bottom: 1.25rem;
+    max-width: 720px;
+  }
+ 
+  h1 em { font-style: normal; color: var(--teal-400); }
+ 
+  .page-hero-sub {
+    font-size: 1.1rem;
+    color: var(--gray-600);
+    max-width: 580px;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+ 
+  /* ── SHARED ── */
+  section { padding: 5.5rem 2rem; }
+  .container { max-width: 1060px; margin: 0 auto; }
+ 
+  .section-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal-600);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+ 
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    color: var(--gray-900);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+ 
+  .section-intro {
+    font-size: 1.025rem;
+    color: var(--gray-600);
+    max-width: 620px;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+ 
+  /* ── PERSON CARDS ── */
+  .people-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+ 
+  .person-card {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+ 
+  .person-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    background: var(--gray-50);
+  }
+ 
+  .person-photo-placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: var(--gray-50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-200);
+    font-size: 3rem;
+  }
+ 
+  .person-body {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+ 
+  .person-role {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal-600);
+    margin-bottom: 0.35rem;
+  }
+ 
+  .person-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+ 
+  .person-bio {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+    flex: 1;
+  }
+ 
+  /* stat pills for leadership */
+  .person-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+ 
+  .stat-pill {
+    background: var(--teal-50);
+    border: 1px solid var(--teal-100);
+    color: var(--teal-800);
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+  }
+ 
+  /* expertise tags */
+  .tag-group {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+ 
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-items: flex-start;
+  }
+ 
+  .tag-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    min-width: 80px;
+    padding-top: 0.2rem;
+  }
+ 
+  .tag {
+    font-size: 0.78rem;
+    background: var(--gray-50);
+    border: 1px solid var(--gray-100);
+    color: var(--gray-600);
+    padding: 0.2rem 0.65rem;
+    border-radius: 100px;
+  }
+ 
+  /* ── DARK EXPERTS SECTION ── */
+  #experts {
+    background: var(--gray-900);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+ 
+  #experts .section-label { color: var(--teal-100); }
+  #experts h2 { color: #fff; }
+  #experts .section-intro { color: var(--gray-200); }
+ 
+  #experts .person-card {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.1);
+  }
+ 
+  #experts .person-name { color: #fff; }
+  #experts .person-bio { color: var(--gray-200); }
+  #experts .person-role { color: var(--teal-100); }
+ 
+  #experts .tag {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.12);
+    color: var(--gray-200);
+  }
+ 
+  #experts .tag-label { color: var(--gray-400); }
+ 
+  #experts .person-photo-placeholder {
+    background: rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.15);
+  }
+ 
+  /* ── NEXT STEPS ── */
+  #nextsteps {
+    background: var(--gray-900);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 5.5rem 2rem;
+  }
+ 
+  #nextsteps h2 { color: #fff; }
+  #nextsteps .section-label { color: var(--teal-100); }
+  #nextsteps .section-intro { color: var(--gray-200); }
+ 
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+ 
+  .step-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1.75rem;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    position: relative;
+  }
+ 
+  .step-card:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: var(--teal-400);
+    transform: translateY(-2px);
+  }
+ 
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--teal-400);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+ 
+  .step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.4rem;
+  }
+ 
+  .step-desc { font-size: 0.875rem; color: var(--gray-200); line-height: 1.6; }
+ 
+  .step-arrow {
+    position: absolute;
+    top: 1.5rem; right: 1.5rem;
+    color: var(--gray-400);
+    font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+  .step-card:hover .step-arrow { color: var(--teal-400); }
+ 
+  /* ── FOOTER ── */
+  footer {
+    background: var(--gray-900);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 2.5rem 2rem;
+  }
+ 
+  .footer-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+ 
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+  }
+ 
+  .footer-copy { font-size: 0.82rem; color: var(--gray-400); }
+ 
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem; gap: 0; }
+    .nav-links { display: none; }
+    section, #nextsteps { padding: 4rem 1.25rem; }
+    .people-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── MOBILE MENU ── */
+  .nav-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem;
+    color: var(--gray-800);
+    font-size: 1.2rem;
+    margin-left: auto;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: var(--nav-height);
+    left: 0; right: 0;
+    background: rgba(250, 250, 248, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-100);
+    z-index: 99;
+    padding: 1rem 1.25rem 1.5rem;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--gray-600);
+    padding: 0.65rem 0.75rem;
+    border-radius: 8px;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .mobile-menu a:hover,
+  .mobile-menu a.active { color: var(--gray-900); background: var(--gray-50); }
+  .mobile-menu a.active { font-weight: 500; }
+
+  .mobile-menu .mobile-cta {
+    margin-top: 0.5rem;
+    background: var(--teal-400);
+    color: #fff !important;
+    text-align: center;
+    font-weight: 500 !important;
+    border-radius: 8px;
+  }
+
+  .mobile-menu .mobile-cta:hover { background: var(--teal-600); }
+
+  @media (max-width: 768px) {
+    .nav-hamburger { display: flex; align-items: center; }
+  }
+</style>
+</head>
+<body>
+ 
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span></span>Robots for All
+  </a>
+  <ul class="nav-links">
+    <li><a href="universaldesign.html">Universal Design</a></li>
+    <li><a href="consortium.html">Consortium</a></li>
+    <li><a href="experts.html" class="active">Experts</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="universaldesign.html">Universal Design</a>
+  <a href="consortium.html">Consortium</a>
+  <a href="experts.html" class="active">Experts</a>
+  <a href="events.html">Events</a>
+  <a href="resources.html">Resources</a>
+  <a href="contact.html" class="mobile-cta">Get in Touch</a>
+</div>
+ 
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container">
+    <div class="eyebrow">The people behind the work</div>
+    <h1>Meet our <em>experts</em></h1>
+    <p class="page-hero-sub">
+      Robots for All brings together a rare combination of robotics researchers, accessibility specialists, and people with lived experience of disability — united by the goal of making robots work for everyone.
+    </p>
+  </div>
+</div>
+ 
+<!-- LEADERSHIP -->
+<section id="leadership">
+  <div class="container">
+    <p class="section-label">Core leadership</p>
+    <h2>The team behind Robots for All</h2>
+    <p class="section-intro">Our leadership combines deep expertise in robot usability research, accessibility, and product strategy.</p>
+ 
+    <div class="people-grid">
+ 
+      <!-- Marlena -->
+      <div class="person-card">
+        <img src="img/experts/marlena.jpg" alt="A nonbinary person with rainbow hair and light skin smiling at the camera" class="person-photo">
+        <div class="person-body">
+          <div class="person-role">Team Lead</div>
+          <div class="person-name">Marlena R. Fraune, Ph.D.</div>
+          <p class="person-bio">
+            Leads Robots for All with a research background in robot usability, including work with industry leaders and government-funded grants.
+          </p>
+          <div class="person-stats">
+            <span class="stat-pill">+38% user satisfaction</span>
+            <span class="stat-pill">+26% social connection</span>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Abena -->
+      <div class="person-card">
+        <div class="person-photo-placeholder">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="person-body">
+          <div class="person-role">Robot Accessibility Expert</div>
+          <div class="person-name">Abena Boadi-Agyemang</div>
+          <p class="person-bio">
+            Specializes in robot accessibility, with hands-on experience conducting in-person design sessions to improve robot usability with people with disabilities.
+          </p>
+          <div class="person-stats">
+            <span class="stat-pill">35+ PwDs in design sessions</span>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Schyler -->
+      <div class="person-card">
+        <img src="img/Experts/Schyler_VerSteeg_picture.jpeg" alt="A person with short brown hair and light skin smiling at the camera. They are wearing a green scarf and yellow shirt." class="person-photo">
+        <div class="person-body">
+          <div class="person-role">Product Research &amp; Strategy</div>
+          <div class="person-name">Schyler VerSteeg</div>
+          <p class="person-bio">
+            Brings over a decade of combined industry experience in product research and strategy, connecting organizational goals with market and user needs.
+          </p>
+          <div class="person-stats">
+            <span class="stat-pill">10+ years industry experience</span>
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+<!-- ACCESSIBILITY EXPERTS -->
+<section id="experts">
+  <div class="container">
+    <p class="section-label">Accessibility experts</p>
+    <h2>Researchers and lived-experience experts</h2>
+    <p class="section-intro">Our accessibility experts bring firsthand research knowledge and lived experience of disability to every guideline and project we undertake.</p>
+ 
+    <div class="people-grid">
+ 
+      <!-- Sawyer Collins -->
+      <div class="person-card">
+        <img src="img/experts/DrSawyerCollins.jpeg" alt="Man with short hair, beard, and red shirt, hands in pockets, looking at the camera" class="person-photo">
+        <div class="person-body">
+          <div class="person-role">Researcher</div>
+          <div class="person-name">Dr. Sawyer Collins</div>
+          <p class="person-bio">
+            Works at the intersection of accessibility and robotics, developing codesign methods — including gamification and serious games — to centre the voices of people with diverse lived experiences in the design of embodied technologies.
+          </p>
+          <div class="tag-group">
+            <div class="tag-row">
+              <span class="tag-label">Technology</span>
+              <span class="tag">Robots</span>
+              <span class="tag">Robot prototyping</span>
+              <span class="tag">Arduino</span>
+              <span class="tag">Raspberry Pi</span>
+            </div>
+            <div class="tag-row">
+              <span class="tag-label">Accessibility</span>
+              <span class="tag">Neurodivergence</span>
+              <span class="tag">Physical disabilities</span>
+              <span class="tag">Cognitive disabilities</span>
+              <span class="tag">Older adults</span>
+            </div>
+            <div class="tag-row">
+              <span class="tag-label">Intersectional identities</span>
+              <span class="tag">Gender</span>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Tony Belpaeme -->
+      <div class="person-card">
+        <img src="img/experts/Tony Belpaeme 2026.JPG" alt="Light-haired man looking at the camera in front of green shrubbery" class="person-photo">
+        <div class="person-body">
+          <div class="person-role">Researcher</div>
+          <div class="person-name">Tony Belpaeme</div>
+          <p class="person-bio">
+            Specializes in the development and evaluation of socially assistive and service robots, with expertise in multimodal interaction, situated AI, and human-centred design. Has extensive experience deploying robots in homes, care facilities, hospitals, and educational settings, with particular attention to linguistic and cultural diversity in European contexts.
+          </p>
+          <div class="tag-group">
+            <div class="tag-row">
+              <span class="tag-label">Technology</span>
+              <span class="tag">Socially assistive robots</span>
+              <span class="tag">Service robots</span>
+              <span class="tag">Multimodal interaction</span>
+            </div>
+            <div class="tag-row">
+              <span class="tag-label">Accessibility</span>
+              <span class="tag">Elderly</span>
+              <span class="tag">Children with ASD</span>
+              <span class="tag">Hospital settings</span>
+            </div>
+            <div class="tag-row">
+              <span class="tag-label">Intersectional identities</span>
+              <span class="tag">Language</span>
+              <span class="tag">Culture</span>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Phoebe Toups-Dugas -->
+      <div class="person-card">
+        <img src="img/Experts/Phoebe Dugas Toups.jpeg" alt="Curly-haired woman with black glasses and hair tie looking at the camera" class="person-photo">
+        <div class="person-body">
+          <div class="person-role">Researcher</div>
+          <div class="person-name">Phoebe Toups-Dugas</div>
+          <p class="person-bio">
+            Research centres on designing for transgender inclusivity, creating games and software systems that prioritize joy in gender expression. Her work has established design principles for inclusive computing, drawing on HCI, game design, and agent awareness.
+          </p>
+          <div class="tag-group">
+            <div class="tag-row">
+              <span class="tag-label">Technology</span>
+              <span class="tag">Computers</span>
+              <span class="tag">Game design</span>
+              <span class="tag">Agent awareness</span>
+              <span class="tag">Disaster response IT</span>
+            </div>
+            <div class="tag-row">
+              <span class="tag-label">Accessibility</span>
+              <span class="tag">Neurodivergence</span>
+            </div>
+            <div class="tag-row">
+              <span class="tag-label">Intersectional identities</span>
+              <span class="tag">Gender</span>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Henry Evans -->
+      <div class="person-card">
+        <img src="img/experts/Henry Evans.png" alt="Light-skinned man with black framed glasses and short hair smiling at camera" class="person-photo">
+        <div class="person-body">
+          <div class="person-role">Lived-Experience Expert</div>
+          <div class="person-name">Henry Evans</div>
+          <p class="person-bio">
+            Brings over 25 years of lived experience navigating mobility challenges and utilizing AAC and alternative computer access technologies. Co-founded Robots for Humanity and has been deeply involved in the development of home assistive robotics for over 15 years. A leading voice in assistive technology advocacy, he has given hundreds of talks and interviews worldwide.
+          </p>
+          <div class="tag-group">
+            <div class="tag-row">
+              <span class="tag-label">Technology</span>
+              <span class="tag">AAC</span>
+              <span class="tag">Assistive robotics</span>
+              <span class="tag">Alternative computer access</span>
+            </div>
+            <div class="tag-row">
+              <span class="tag-label">Lived experience</span>
+              <span class="tag">Mobility</span>
+              <span class="tag">Quadriplegia</span>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+<!-- NEXT STEPS -->
+<section id="nextsteps">
+  <div class="container">
+    <p class="section-label">Keep exploring</p>
+    <h2>What's next for you</h2>
+    <p class="section-intro">Learn more about how Robots for All works and how to get involved.</p>
+ 
+    <div class="steps-grid">
+      <a href="consortium.html" class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-title">The Consortium</div>
+        <div class="step-desc">Learn how our collaborative network operates and how to join.</div>
+        <span class="step-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a href="universaldesign.html" class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-title">Universal Design</div>
+        <div class="step-desc">Understand why building for everyone is the smart business move.</div>
+        <span class="step-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a href="events.html" class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-title">Events</div>
+        <div class="step-desc">Find us at upcoming conferences and workshops.</div>
+        <span class="step-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a href="contact.html" class="step-card">
+        <div class="step-num">04</div>
+        <div class="step-title">Contact Us</div>
+        <div class="step-desc">Schedule a meeting to discuss how Robots for All can work for you.</div>
+        <span class="step-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">Robots for All</a>
+    <div class="footer-copy">© 2025 Robots for All. All rights reserved.</div>
+  </div>
+</footer>
+ 
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.toggle('open');
+  hamburger.innerHTML = isOpen
+    ? '<i class="fa-solid fa-xmark"></i>'
+    : '<i class="fa-solid fa-bars"></i>';
+});
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+  });
+});
+</script>
+</body>
+</html>
