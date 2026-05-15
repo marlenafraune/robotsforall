@@ -642,63 +642,6 @@
     section, #nextsteps { padding: 4rem 1.25rem; }
     .callout-strip { padding: 3.5rem 1.25rem; }
   }
-  /* ── MOBILE MENU ── */
-  .nav-hamburger {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.4rem;
-    color: var(--gray-800);
-    font-size: 1.2rem;
-    margin-left: auto;
-  }
-
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    top: var(--nav-height);
-    left: 0; right: 0;
-    background: rgba(250, 250, 248, 0.98);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--gray-100);
-    z-index: 99;
-    padding: 1rem 1.25rem 1.5rem;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .mobile-menu.open { display: flex; }
-
-  .mobile-menu a {
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--gray-600);
-    padding: 0.65rem 0.75rem;
-    border-radius: 8px;
-    transition: color 0.2s, background 0.2s;
-  }
-
-  .mobile-menu a:hover,
-  .mobile-menu a.active { color: var(--gray-900); background: var(--gray-50); }
-  .mobile-menu a.active { font-weight: 500; }
-
-  .mobile-menu .mobile-cta {
-    margin-top: 0.5rem;
-    background: var(--teal-400);
-    color: #fff !important;
-    text-align: center;
-    font-weight: 500 !important;
-    border-radius: 8px;
-  }
-
-  .mobile-menu .mobile-cta:hover { background: var(--teal-600); }
-
-  @media (max-width: 768px) {
-    .nav-hamburger { display: flex; align-items: center; }
-  }
 </style>
 </head>
 <body>
@@ -716,17 +659,7 @@
     <li><a href="resources.html">Resources</a></li>
     <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
   </ul>
-  <button class="nav-hamburger" id="hamburger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
 </nav>
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="universaldesign.html">Universal Design</a>
-  <a href="consortium.html" class="active">Consortium</a>
-  <a href="experts.html">Experts</a>
-  <a href="events.html">Events</a>
-  <a href="resources.html">Resources</a>
-  <a href="contact.html" class="mobile-cta">Get in Touch</a>
-</div>
  
 <!-- PAGE HERO -->
 <div class="page-hero">
@@ -823,9 +756,21 @@
     </p>
  
     <div class="membership-grid">
- 
+
+      <div class="tier-card">
+        <div class="tier-name">Enterprise Member</div>
+        <div class="tier-price">$22,000</div>
+        <div class="tier-price-note">per year</div>
+        <hr class="tier-divider">
+        <ul class="tier-benefits">
+          <li><span class="check"><i class="fa-solid fa-check"></i></span>All Full Member benefits</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span>2 additional accessibility audits</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span>10 additional office hours with accessibility experts</li>
+        </ul>
+      </div>
+
       <div class="tier-card featured">
-        <div class="tier-badge">Most comprehensive</div>
+        <div class="tier-badge">Most companies start here</div>
         <div class="tier-name">Full Member</div>
         <div class="tier-price">$11,000</div>
         <div class="tier-price-note">per year</div>
@@ -839,7 +784,7 @@
           <li><span class="check"><i class="fa-solid fa-check"></i></span>All Associate Member benefits</li>
         </ul>
       </div>
- 
+
       <div class="tier-card">
         <div class="tier-name">Associate Member</div>
         <div class="tier-price">$5,500</div>
@@ -847,13 +792,15 @@
         <hr class="tier-divider">
         <ul class="tier-benefits">
           <li><span class="check"><i class="fa-solid fa-check"></i></span>Attendance at all events — online board meetings, research reports, and one in-person workshop per year</li>
-          <li><span class="check"><i class="fa-solid fa-check"></i></span>Robot accessibility guidelines and documentation</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span>Robot accessibility training</li>
           <li><span class="check"><i class="fa-solid fa-check"></i></span>Input on prioritization of publicly released accessibility topics</li>
           <li><span class="check"><i class="fa-solid fa-check"></i></span>Networking with industry and research peers</li>
           <li><span class="check"><i class="fa-solid fa-check"></i></span>Opportunity to present related research</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span>1 robot accessibility audit</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span>5 office hours with accessibility experts</li>
         </ul>
       </div>
- 
+
       <div class="tier-card">
         <div class="tier-name">Start-Up &amp; Research Member</div>
         <div class="tier-price">$2,500</div>
@@ -867,7 +814,36 @@
           Available to companies with fewer than 40 staff and less than 4 years old, and to university or non-profit R&amp;D organizations. Non-monetary contributions may be accepted in lieu of fees (robots, physical spaces, research participants, infrastructure) — subject to approval by the team.
         </p>
       </div>
- 
+
+    </div>
+
+    <!-- A LA CARTE -->
+    <div style="margin-top: 3rem;">
+      <p class="section-label">À la carte</p>
+      <h3 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--gray-900); margin-bottom: 0.5rem; letter-spacing: -0.01em;">Need something specific?</h3>
+      <p style="font-size: 0.975rem; color: var(--gray-600); margin-bottom: 1.5rem; max-width: 540px; font-weight: 300; line-height: 1.7;">Individual services are available without a membership commitment.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem;">
+        <div class="tier-card" style="padding: 1.5rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+            <div class="role-icon" style="margin-bottom:0;"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <div class="tier-name" style="margin-bottom:0; font-size:1rem;">Accessibility Audit</div>
+          </div>
+          <div class="tier-price" style="font-size:1.4rem;">$4,000</div>
+          <div class="tier-price-note">per audit</div>
+          <hr class="tier-divider">
+          <p style="font-size:0.875rem; color:var(--gray-600); line-height:1.65;">A structured expert review of your robot against our accessibility guidelines, with concrete, prioritized recommendations.</p>
+        </div>
+        <div class="tier-card" style="padding: 1.5rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+            <div class="role-icon" style="margin-bottom:0;"><i class="fa-solid fa-door-open"></i></div>
+            <div class="tier-name" style="margin-bottom:0; font-size:1rem;">Office Hours Package</div>
+          </div>
+          <div class="tier-price" style="font-size:1.4rem;">$4,000</div>
+          <div class="tier-price-note">10 hours</div>
+          <hr class="tier-divider">
+          <p style="font-size:0.875rem; color:var(--gray-600); line-height:1.65;">A package of 10 office hours with our accessibility experts — schedule the specific individuals most relevant to your robot and context.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1011,22 +987,6 @@ function toggleFunction() {
     else x.className = x.className.replace(" w3-show", "");
   }
 }
-</script>
-<script>
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-hamburger.addEventListener('click', () => {
-  const isOpen = mobileMenu.classList.toggle('open');
-  hamburger.innerHTML = isOpen
-    ? '<i class="fa-solid fa-xmark"></i>'
-    : '<i class="fa-solid fa-bars"></i>';
-});
-mobileMenu.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-    hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
-  });
-});
 </script>
 </body>
 </html>
