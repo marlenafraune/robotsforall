@@ -642,6 +642,10 @@
     section, #nextsteps { padding: 4rem 1.25rem; }
     .callout-strip { padding: 3.5rem 1.25rem; }
   }
+
+  @media (max-width: 768px) {
+    .nav-hamburger { display: flex; align-items: center; }
+  }
 </style>
 </head>
 <body>
@@ -661,6 +665,17 @@
   </ul>
 </nav>
  
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="universaldesign.html">Universal Design</a>
+  <a href="consortium.html" class="active">Consortium</a>
+  <a href="experts.html">Experts</a>
+  <a href="events.html">Events</a>
+  <a href="resources.html">Resources</a>
+  <a href="contact.html" class="mobile-cta">Get in Touch</a>
+</div>
+
 <!-- PAGE HERO -->
 <div class="page-hero">
   <div class="page-hero-bg"></div>
@@ -796,6 +811,7 @@
           <li><span class="check"><i class="fa-solid fa-check"></i></span>Robot accessibility training</li>
           <li><span class="check"><i class="fa-solid fa-check"></i></span>Input on prioritization of publicly released accessibility topics</li>
           <li><span class="check"><i class="fa-solid fa-check"></i></span>Networking with industry and research peers</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span>Early release access to research findings</li>
           <li><span class="check"><i class="fa-solid fa-check"></i></span>Opportunity to present related research</li>
         </ul>
       </div>
@@ -806,7 +822,12 @@
         <div class="tier-price-note">per year</div>
         <hr class="tier-divider">
         <ul class="tier-benefits">
-          <li><span class="check"><i class="fa-solid fa-check"></i></span>All Associate Member benefits</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span>Attendance at all events — online board meetings, research reports, and one in-person workshop per year</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span>1 robot accessibility audit on limited robot elements</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span>Robot accessibility training</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span>Input on prioritization of publicly released accessibility topics</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span>Networking with industry and research peers</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span>Opportunity to present related research</li>
           <li><span class="check"><i class="fa-solid fa-check"></i></span>Program evaluation support on grants</li>
         </ul>
         <p class="tier-note">
@@ -986,6 +1007,22 @@ function toggleFunction() {
     else x.className = x.className.replace(" w3-show", "");
   }
 }
+</script>
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.toggle('open');
+  hamburger.innerHTML = isOpen
+    ? '<i class="fa-solid fa-xmark"></i>'
+    : '<i class="fa-solid fa-bars"></i>';
+});
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+  });
+});
 </script>
 </body>
 </html>
