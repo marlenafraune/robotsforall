@@ -214,167 +214,240 @@
     font-weight: 300;
   }
  
-  /* ── WHY UD ── */
-  #why {
+  /* ── STRUCTURE ── */
+  #structure {
     border-top: 1px solid var(--gray-100);
   }
  
-  .why-grid {
+  .structure-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
   }
  
-  .why-img {
-    width: 100%;
-    border-radius: 12px;
-    display: block;
-    object-fit: cover;
-    aspect-ratio: 4/3;
-    background: var(--gray-50);
+  .role-card {
+    background: var(--white);
     border: 1px solid var(--gray-100);
+    border-radius: 12px;
+    padding: 1.75rem;
   }
  
-  .why-text p {
-    font-size: 1rem;
-    color: var(--gray-600);
-    line-height: 1.8;
-    margin-bottom: 1.25rem;
-  }
- 
-  .callout-box {
+  .role-icon {
+    width: 36px; height: 36px;
     background: var(--teal-50);
-    border-left: 3px solid var(--teal-400);
-    border-radius: 0 8px 8px 0;
-    padding: 1.1rem 1.4rem;
-    margin-top: 1.75rem;
-    font-size: 0.975rem;
-    color: var(--teal-800);
-    line-height: 1.65;
-    font-weight: 400;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--teal-600);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
   }
  
-  .callout-box strong {
+  .role-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+ 
+  .role-card p {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    line-height: 1.65;
+  }
+ 
+  /* Team members sub-list */
+  .team-list {
+    list-style: none;
+    margin-top: 0.75rem;
+    border-top: 1px solid var(--gray-100);
+    padding-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+ 
+  .team-list li {
+    font-size: 0.85rem;
+    color: var(--gray-600);
+    line-height: 1.5;
+  }
+ 
+  .team-list li strong {
+    color: var(--gray-900);
     font-weight: 500;
     display: block;
-    margin-bottom: 0.2rem;
-    color: var(--teal-900);
   }
  
-  /* ── CONSEQUENCES ── */
-  #consequences {
+  /* ── MEMBERSHIP ── */
+  #membership {
     background: var(--gray-50);
     border-top: 1px solid var(--gray-100);
     border-bottom: 1px solid var(--gray-100);
   }
  
-  .consequence-list {
+  .membership-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.25rem;
-    margin-bottom: 3.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    align-items: start;
   }
  
-  .consequence-card {
+  .tier-card {
     background: var(--white);
     border: 1px solid var(--gray-100);
     border-radius: 12px;
-    padding: 1.5rem;
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
+    padding: 2rem 1.75rem;
+    position: relative;
   }
  
-  .consequence-icon {
-    flex-shrink: 0;
-    width: 36px; height: 36px;
-    background: var(--coral-50);
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--coral-600);
-    font-size: 0.9rem;
+  .tier-card.featured {
+    border: 2px solid var(--teal-400);
   }
  
-  .consequence-card h3 {
-    font-family: 'Playfair Display', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
+  .tier-badge {
+    position: absolute;
+    top: -13px; left: 1.5rem;
+    background: var(--teal-400);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+  }
+ 
+  .tier-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
     color: var(--gray-900);
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.25rem;
   }
  
-  .consequence-card p {
+  .tier-price {
+    font-size: 1.75rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    color: var(--teal-400);
+    line-height: 1.1;
+    margin-bottom: 0.25rem;
+  }
+ 
+  .tier-price-note {
+    font-size: 0.8rem;
+    color: var(--gray-400);
+    margin-bottom: 1.5rem;
+  }
+ 
+  .tier-divider {
+    border: none;
+    border-top: 1px solid var(--gray-100);
+    margin-bottom: 1.25rem;
+  }
+ 
+  .tier-benefits {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+ 
+  .tier-benefits li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
     font-size: 0.875rem;
     color: var(--gray-600);
-    line-height: 1.6;
-  }
- 
-  .consequence-card a {
-    color: var(--teal-600);
-    text-decoration: none;
-    font-weight: 500;
-  }
-  .consequence-card a:hover { text-decoration: underline; }
- 
-  /* ── STATS STRIP ── */
-  .stats-strip {
-    background: var(--gray-900);
-    padding: 3.5rem 2rem;
-  }
- 
-  .stats-grid {
-    max-width: 1060px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    text-align: center;
-  }
- 
-  .stat-item { padding: 0.5rem; }
- 
-  .stat-number {
-    font-family: 'Playfair Display', sans-serif;
-    font-weight: 800;
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
-    color: var(--teal-100);
-    line-height: 1.1;
-    margin-bottom: 0.4rem;
-  }
- 
-  .stat-label {
-    font-size: 0.85rem;
-    color: var(--gray-200);
     line-height: 1.5;
   }
  
-  .stat-label a {
-    color: var(--teal-100);
-    text-decoration: none;
+  .tier-benefits li .check {
+    flex-shrink: 0;
+    color: var(--teal-400);
+    font-size: 0.8rem;
+    margin-top: 3px;
   }
-  .stat-label a:hover { text-decoration: underline; }
  
-  /* ── WHY HARD ── */
-  #hard {
+  .tier-note {
+    margin-top: 1.25rem;
+    font-size: 0.8rem;
+    color: var(--gray-400);
+    line-height: 1.5;
+    border-top: 1px solid var(--gray-100);
+    padding-top: 1rem;
+  }
+ 
+  /* ── EVENTS ── */
+  #events {
     border-top: 1px solid var(--gray-100);
   }
  
-  .hard-cards {
+  .events-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.25rem;
   }
  
-  .hard-card {
+  .event-card {
     border: 1px solid var(--gray-100);
     border-radius: 12px;
     padding: 1.75rem;
     background: var(--white);
   }
  
-  .hard-card-num {
-    font-family: 'Playfair Display', sans-serif;
+  .event-icon {
+    width: 36px; height: 36px;
+    background: var(--teal-50);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--teal-600);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+ 
+  .event-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+ 
+  .event-card p {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    line-height: 1.65;
+  }
+ 
+  /* ── HOW FUNDS ARE SPENT ── */
+  #funds {
+    background: var(--gray-900);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+ 
+  #funds .section-label { color: var(--teal-100); }
+  #funds h2 { color: #fff; }
+  #funds .section-intro { color: var(--gray-200); }
+ 
+  .funds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+ 
+  .fund-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1.75rem;
+  }
+ 
+  .fund-num {
+    font-family: 'Playfair Display', serif;
     font-size: 0.75rem;
     font-weight: 700;
     color: var(--teal-400);
@@ -382,143 +455,67 @@
     margin-bottom: 0.75rem;
   }
  
-  .hard-card h3 {
-    font-family: 'Playfair Display', sans-serif;
+  .fund-card h3 {
+    font-family: 'Playfair Display', serif;
     font-size: 1rem;
-    font-weight: 600;
-    color: var(--gray-900);
+    font-weight: 700;
+    color: #fff;
     margin-bottom: 0.5rem;
-    line-height: 1.3;
   }
  
-  .hard-card p {
-    font-size: 0.9rem;
-    color: var(--gray-600);
-    line-height: 1.65;
+  .fund-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
   }
  
-  /* ── SOLUTION ── */
-  #solution {
-    background: var(--teal-900);
-    border-top: 1px solid var(--teal-800);
+  .fund-list li {
+    font-size: 0.85rem;
+    color: var(--gray-200);
+    line-height: 1.55;
+    padding-left: 0.85rem;
+    position: relative;
   }
  
-  #solution .section-label { color: var(--teal-100); }
-  #solution h2 { color: #fff; }
-  #solution .section-intro { color: var(--teal-100); }
- 
-  .solution-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.25rem;
+  .fund-list li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--teal-400);
   }
  
-  .solution-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 12px;
-    padding: 1.75rem;
-    transition: background 0.2s;
-  }
- 
-  .solution-card:hover { background: rgba(255,255,255,0.1); }
- 
-  .solution-icon {
-    width: 36px; height: 36px;
-    background: var(--teal-400);
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    color: #fff;
-    font-size: 0.875rem;
-    margin-bottom: 1rem;
-  }
- 
-  .solution-card h3 {
-    font-family: 'Playfair Display', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 0.4rem;
-  }
- 
-  .solution-card p {
-    font-size: 0.875rem;
-    color: var(--teal-100);
-    line-height: 1.6;
-  }
- 
-  /* ── RESULTS STRIP ── */
-  .results-strip {
+  /* ── CALLOUT ── */
+  .callout-strip {
     background: var(--white);
     border-top: 1px solid var(--gray-100);
-    padding: 4rem 2rem;
-  }
- 
-  .results-inner {
-    max-width: 1060px;
-    margin: 0 auto;
-  }
- 
-  .results-header {
+    padding: 4.5rem 2rem;
     text-align: center;
-    margin-bottom: 3rem;
   }
  
-  .results-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-  }
+  .callout-strip h2 { margin-bottom: 0.75rem; }
  
-  .result-card {
-    background: var(--gray-50);
-    border-radius: 12px;
-    padding: 1.75rem 1.5rem;
-    text-align: center;
-    border: 1px solid var(--gray-100);
-  }
- 
-  .result-number {
-    font-family: 'Playfair Display', sans-serif;
-    font-size: 1.75rem;
-    font-weight: 800;
-    color: var(--teal-400);
-    margin-bottom: 0.35rem;
-    line-height: 1.1;
-  }
- 
-  .result-label {
-    font-size: 0.875rem;
-    color: var(--gray-600);
-    line-height: 1.5;
-  }
- 
-  .results-cta {
-    text-align: center;
-    margin-top: 3rem;
-    padding-top: 3rem;
-    border-top: 1px solid var(--gray-100);
-  }
- 
-  .results-cta h3 {
-    font-family: 'Playfair Display', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--gray-900);
-    margin-bottom: 0.75rem;
-  }
- 
-  .results-cta p {
-    color: var(--gray-600);
+  .callout-strip p {
     font-size: 1rem;
-    margin-bottom: 1.75rem;
+    color: var(--gray-600);
+    max-width: 520px;
+    margin: 0 auto 2rem;
     font-weight: 300;
+    line-height: 1.75;
+  }
+ 
+  .callout-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
   }
  
   /* ── NEXT STEPS ── */
   #nextsteps {
     background: var(--gray-900);
     border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 5.5rem 2rem;
   }
  
   #nextsteps h2 { color: #fff; }
@@ -527,7 +524,7 @@
  
   .steps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1.25rem;
   }
  
@@ -550,7 +547,7 @@
   }
  
   .step-num {
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-size: 0.75rem;
     font-weight: 700;
     color: var(--teal-400);
@@ -559,7 +556,7 @@
   }
  
   .step-title {
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-size: 1rem;
     font-weight: 600;
     color: #fff;
@@ -576,7 +573,7 @@
     transition: color 0.2s;
   }
   .step-card:hover .step-arrow { color: var(--teal-400); }
- 
+  
   /* ── BUTTONS ── */
   .btn-primary {
     background: var(--teal-400);
