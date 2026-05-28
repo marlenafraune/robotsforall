@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>AAAI Fall Symposium 2026 — Robots for All</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal-50: #E1F5EE;
+    --teal-100: #9FE1CB;
+    --teal-400: #1D9E75;
+    --teal-600: #0F6E56;
+    --teal-800: #085041;
+    --teal-900: #04342C;
+    --gray-50: #F1EFE8;
+    --gray-100: #D3D1C7;
+    --gray-200: #B4B2A9;
+    --gray-400: #888780;
+    --gray-600: #5F5E5A;
+    --gray-800: #444441;
+    --gray-900: #2C2C2A;
+    --white: #FAFAF8;
+    --nav-height: 68px;
+    --amber-50: #FAEEDA;
+    --amber-100: #FAC775;
+    --amber-400: #BA7517;
+    --amber-600: #854F0B;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    color: var(--gray-800);
+    background: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-height);
+    background: rgba(250, 250, 248, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-100);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    padding: 0 2.5rem;
+    gap: 2.5rem;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: 0.04em;
+    color: var(--gray-900);
+    text-decoration: none;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav-logo span {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--teal-400);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--gray-600);
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--gray-900); background: var(--gray-50); }
+  .nav-links a.active { font-weight: 500; }
+
+  .nav-cta {
+    background: var(--teal-400) !important;
+    color: #fff !important;
+    padding: 0.45rem 1.1rem !important;
+    border-radius: 6px;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--teal-600) !important; }
+
+  .nav-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem;
+    color: var(--gray-800);
+    font-size: 1.2rem;
+    margin-left: auto;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: var(--nav-height);
+    left: 0; right: 0;
+    background: rgba(250, 250, 248, 0.98);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-100);
+    z-index: 99;
+    padding: 1rem 1.25rem 1.5rem;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: var(--gray-600);
+    padding: 0.65rem 0.75rem;
+    border-radius: 8px;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .mobile-menu a:hover { color: var(--gray-900); background: var(--gray-50); }
+
+  .mobile-menu .mobile-cta {
+    margin-top: 0.5rem;
+    background: var(--teal-400);
+    color: #fff !important;
+    text-align: center;
+    font-weight: 500 !important;
+    border-radius: 8px;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem; gap: 0; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; align-items: center; }
+  }
+
+  /* ── PROPOSED BANNER ── */
+  .proposed-banner {
+    background: var(--amber-50);
+    border-bottom: 1px solid var(--amber-100);
+    padding: 0.6rem 2rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--amber-600);
+    font-weight: 500;
+    margin-top: var(--nav-height);
+  }
+
+  .proposed-banner i { margin-right: 0.4rem; }
+
+  /* ── PAGE HERO ── */
+  .page-hero {
+    padding: 5rem 2rem 5rem;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-hero-bg {
+    position: absolute;
+    top: 0; right: 0;
+    width: 480px; height: 480px;
+    background: var(--teal-50);
+    border-radius: 50%;
+    transform: translate(30%, -30%);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .page-hero .container { position: relative; z-index: 1; }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal-600);
+    background: var(--teal-50);
+    border: 1px solid var(--teal-100);
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--teal-400);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+    color: var(--gray-900);
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    margin-bottom: 1.25rem;
+    max-width: 760px;
+  }
+
+  h1 em { font-style: normal; color: var(--teal-400); }
+
+  .page-hero-sub {
+    font-size: 1.05rem;
+    color: var(--gray-600);
+    max-width: 600px;
+    font-weight: 300;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--gray-600);
+  }
+
+  .meta-item i { color: var(--teal-400); font-size: 0.85rem; }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* ── SHARED ── */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1060px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal-600);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    color: var(--gray-900);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .section-intro {
+    font-size: 1.025rem;
+    color: var(--gray-600);
+    max-width: 680px;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+
+  /* ── BUTTONS ── */
+  .btn-primary {
+    background: var(--teal-400);
+    color: #fff;
+    padding: 0.8rem 1.75rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-primary:hover { background: var(--teal-600); transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--gray-800);
+    padding: 0.8rem 1.75rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.95rem;
+    border: 1.5px solid var(--gray-200);
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-secondary:hover { border-color: var(--gray-400); background: var(--gray-50); }
+
+  /* ── ABOUT SECTION ── */
+  #about { border-top: 1px solid var(--gray-100); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-grid p {
+    font-size: 0.975rem;
+    color: var(--gray-600);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .callout-box {
+    background: var(--teal-50);
+    border-left: 3px solid var(--teal-400);
+    border-radius: 0 8px 8px 0;
+    padding: 1.1rem 1.4rem;
+    font-size: 0.975rem;
+    color: var(--teal-800);
+    line-height: 1.65;
+  }
+
+  /* ── OBJECTIVES ── */
+  #objectives {
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-100);
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .objectives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .objective-card {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 12px;
+    padding: 1.75rem;
+  }
+
+  .objective-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--teal-400);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+
+  .objective-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .objective-card p {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    line-height: 1.65;
+  }
+
+  .obj-icon {
+    width: 36px; height: 36px;
+    background: var(--teal-50);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--teal-600);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  /* ── FORMAT ── */
+  #format { border-top: 1px solid var(--gray-100); }
+
+  .format-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .format-card {
+    border: 1px solid var(--gray-100);
+    border-radius: 12px;
+    padding: 1.75rem;
+    background: var(--white);
+  }
+
+  .format-icon {
+    width: 36px; height: 36px;
+    background: var(--teal-50);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--teal-600);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .format-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 0.4rem;
+  }
+
+  .format-card p {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    line-height: 1.65;
+  }
+
+  /* ── WHO SHOULD ATTEND ── */
+  #attend {
+    background: var(--gray-900);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  #attend .section-label { color: var(--teal-100); }
+  #attend h2 { color: #fff; }
+  #attend .section-intro { color: var(--gray-200); }
+
+  .attend-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .attend-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .attend-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.4rem;
+  }
+
+  .attend-card p {
+    font-size: 0.85rem;
+    color: var(--gray-200);
+    line-height: 1.6;
+  }
+
+  /* ── ORGANIZERS ── */
+  #organizers { border-top: 1px solid var(--gray-100); }
+
+  .organizers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .organizer-card {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .organizer-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.975rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 0.2rem;
+  }
+
+  .organizer-role {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal-600);
+    margin-bottom: 0.35rem;
+  }
+
+  .organizer-card p {
+    font-size: 0.825rem;
+    color: var(--gray-600);
+    line-height: 1.55;
+  }
+
+  /* ── CTA ── */
+  .callout-strip {
+    background: var(--white);
+    border-top: 1px solid var(--gray-100);
+    padding: 4.5rem 2rem;
+    text-align: center;
+  }
+
+  .callout-strip h2 { margin-bottom: 0.75rem; }
+
+  .callout-strip p {
+    font-size: 1rem;
+    color: var(--gray-600);
+    max-width: 520px;
+    margin: 0 auto 2rem;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+
+  .callout-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--gray-900);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 2.5rem 2rem;
+  }
+
+  .footer-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .footer-copy { font-size: 0.82rem; color: var(--gray-400); }
+
+  @media (max-width: 768px) {
+    section { padding: 4rem 1.25rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .callout-strip { padding: 3.5rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span></span>Robots for All
+  </a>
+  <ul class="nav-links">
+    <li><a href="universaldesign.html">Universal Design</a></li>
+    <li><a href="consortium.html">Consortium</a></li>
+    <li><a href="experts.html">Experts</a></li>
+    <li><a href="events.html" class="active">Events</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="universaldesign.html">Universal Design</a>
+  <a href="consortium.html">Consortium</a>
+  <a href="experts.html">Experts</a>
+  <a href="events.html" class="active">Events</a>
+  <a href="resources.html">Resources</a>
+  <a href="contact.html" class="mobile-cta">Get in Touch</a>
+</div>
+
+<!-- PROPOSED BANNER -->
+<div class="proposed-banner">
+  <i class="fa-solid fa-circle-info"></i>
+  This page is a proposal — details will be updated upon acceptance of the symposium.
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container">
+    <div class="eyebrow">AAAI Fall Symposium 2026</div>
+    <h1>Accessibility Guidelines for <em>Human-Robot Interaction</em></h1>
+    <p class="page-hero-sub">
+      A 2.5-day symposium bringing together researchers, practitioners, and disability community members to advance accessibility guidelines for robots — and build the community to sustain this work.
+    </p>
+    <div class="hero-meta">
+      <div class="meta-item"><i class="fa-solid fa-calendar"></i> November 5–7, 2026</div>
+      <div class="meta-item"><i class="fa-solid fa-location-dot"></i> Westin Arlington, Arlington, VA</div>
+      <div class="meta-item"><i class="fa-solid fa-users"></i> ~40–60 participants</div>
+    </div>
+    <div class="hero-actions">
+      <a href="contact.html" class="btn-primary">
+        Express Interest <i class="fa-solid fa-arrow-right" style="font-size:0.8em;"></i>
+      </a>
+      <a href="#about" class="btn-secondary">Learn More</a>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <p class="section-label">The problem</p>
+        <h2>Robots are already in the world. Accessibility guidelines are not.</h2>
+        <p>Robots are operating in public spaces, hospitals, workplaces, and homes — and they are already causing harm to people with disabilities. Delivery robots block curb cuts. Hospital telepresence systems exclude patients with visual or motor disabilities.</p>
+        <p>Yet no comprehensive accessibility standards exist for physically embodied robots. Current frameworks like WCAG do not address the unique challenges they pose. This symposium exists to change that.</p>
+      </div>
+      <div>
+        <p class="section-label">Our approach</p>
+        <h2>Disability-led, research-grounded, community-built.</h2>
+        <p>This symposium is expressly led by and centered on the disability community. Organizers and a majority of confirmed participants have disabilities. Disability community members participate as co-equal contributors alongside academic researchers.</p>
+        <div class="callout-box">
+          Our long-term goal is to establish robot accessibility guidelines as the WCAG of robots — a global standard for human-robot interaction, shaped by and for the disability community, capable of informing ADA standards and technology policy worldwide.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTIVES -->
+<section id="objectives">
+  <div class="container">
+    <p class="section-label">Symposium objectives</p>
+    <h2>What we aim to accomplish</h2>
+    <p class="section-intro">The symposium is structured around three interconnected goals, each building on the last across 2.5 days.</p>
+
+    <div class="objectives-grid">
+      <div class="objective-card">
+        <div class="obj-icon"><i class="fa-solid fa-lightbulb"></i></div>
+        <div class="objective-num">01</div>
+        <h3>Share and align on current knowledge</h3>
+        <p>Through keynote talks, participant presentations, and structured discussion, participants build a shared foundation and identify where the field agrees and where open questions remain.</p>
+      </div>
+      <div class="objective-card">
+        <div class="obj-icon"><i class="fa-solid fa-file-lines"></i></div>
+        <div class="objective-num">02</div>
+        <h3>Advance robot accessibility guidelines</h3>
+        <p>Working from an existing draft framework, participants identify recommended changes, prioritize critical gaps based on disabled people's needs, and produce actionable guideline updates.</p>
+      </div>
+      <div class="objective-card">
+        <div class="obj-icon"><i class="fa-solid fa-people-group"></i></div>
+        <div class="objective-num">03</div>
+        <h3>Build community and develop future directions</h3>
+        <p>Structured sessions for workshopping research in progress, forming collaborative teams, and developing joint grant proposals — with the goal of sustaining this community beyond the symposium.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMAT -->
+<section id="format">
+  <div class="container">
+    <p class="section-label">Symposium format</p>
+    <h2>How the symposium is structured</h2>
+    <p class="section-intro">The 2.5-day format is designed to maximize community building and tangible output, not passive presentation. Details will be confirmed upon acceptance.</p>
+
+    <div style="display:flex; flex-direction:column; gap: 2.5rem;">
+
+      <!-- Objective 1 -->
+      <div>
+        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:1rem;">
+          <div style="width:28px;height:28px;background:var(--teal-400);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.75rem;font-weight:700;font-family:'Playfair Display',serif;">01</div>
+          <span style="font-size:0.82rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-600);">Share and align on current knowledge</span>
+        </div>
+        <div class="format-grid">
+          <div class="format-card">
+            <div class="format-icon"><i class="fa-solid fa-microphone"></i></div>
+            <h3>Keynote Talks</h3>
+            <p>Invited speakers from lived experience of disability, research, and industry, sharing perspectives that ground and orient the symposium's work.</p>
+          </div>
+          <div class="format-card">
+            <div class="format-icon"><i class="fa-solid fa-person-chalkboard"></i></div>
+            <h3>Participant Talks</h3>
+            <p>Academic and disability community members present submitted work — including lightning talks and in-depth presentations — on topics related to accessibility, robots, and HRI.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Objective 2 -->
+      <div>
+        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:1rem;">
+          <div style="width:28px;height:28px;background:var(--teal-400);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.75rem;font-weight:700;font-family:'Playfair Display',serif;">02</div>
+          <span style="font-size:0.82rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-600);">Advance robot accessibility guidelines</span>
+        </div>
+        <div class="format-grid">
+          <div class="format-card">
+            <div class="format-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+            <h3>Guideline Development Sessions</h3>
+            <p>Small-group sessions to review, critique, and extend the draft PHRIAG framework — organized by guideline principle and led by participants with relevant expertise.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Objective 3 -->
+      <div>
+        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:1rem;">
+          <div style="width:28px;height:28px;background:var(--teal-400);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.75rem;font-weight:700;font-family:'Playfair Display',serif;">03</div>
+          <span style="font-size:0.82rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-600);">Build community and develop future directions</span>
+        </div>
+        <div class="format-grid">
+          <div class="format-card">
+            <div class="format-icon"><i class="fa-solid fa-handshake"></i></div>
+            <h3>Collaboration Development</h3>
+            <p>Structured sessions for forming research teams, brainstorming collaborative projects, and drafting joint grant proposals.</p>
+          </div>
+          <div class="format-card">
+            <div class="format-icon"><i class="fa-solid fa-comments"></i></div>
+            <h3>Community Building</h3>
+            <p>Ample time for structured conversation throughout all 2.5 days, including poster sessions and speed networking.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHO SHOULD ATTEND -->
+<section id="attend">
+  <div class="container">
+    <p class="section-label">Who should attend</p>
+    <h2>This symposium is for you if...</h2>
+    <p class="section-intro">We welcome a broad range of participants — from researchers to practitioners to community members. Details on how to express interest will be shared upon acceptance.</p>
+
+    <div class="attend-grid">
+      <div class="attend-card">
+        <h3>Researchers in HRI, AI, or HCI</h3>
+        <p>Working on accessibility, usability, or inclusive design of robots or AI systems — at any career stage.</p>
+      </div>
+      <div class="attend-card">
+        <h3>Accessibility researchers</h3>
+        <p>With expertise in digital or physical accessibility, assistive technology, disability studies, or related fields.</p>
+      </div>
+      <div class="attend-card">
+        <h3>Disability community members</h3>
+        <p>With lived experience of disability who want to shape how robots are designed — no academic affiliation required.</p>
+      </div>
+      <div class="attend-card">
+        <h3>Industry practitioners</h3>
+        <p>Building or deploying human-facing robots and seeking research partnerships and accessibility guidance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORGANIZERS -->
+<section id="organizers">
+  <div class="container">
+    <p class="section-label">Organizing committee</p>
+    <h2>Who's behind this symposium</h2>
+    <p class="section-intro">The organizing committee brings together expertise in HRI, accessibility research, disability justice, and HCI — with lived experience of disability represented throughout.</p>
+
+    <div class="organizers-grid">
+      <div class="organizer-card">
+        <div class="organizer-role">Lead Organizer</div>
+        <h3>Marlena R. Fraune, Ph.D.</h3>
+        <p>Robots for All / Plover: Human-Centered Technology Consulting</p>
+      </div>
+      <div class="organizer-card">
+        <div class="organizer-role">Co-Organizer</div>
+        <h3>Schyler VerSteeg</h3>
+        <p>Robots for All</p>
+      </div>
+      <div class="organizer-card">
+        <div class="organizer-role">Co-Organizer</div>
+        <h3>Abena Boadi-Agyemang</h3>
+        <p>Carnegie Mellon University</p>
+      </div>
+      <div class="organizer-card">
+        <div class="organizer-role">Co-Organizer</div>
+        <h3>Sawyer Collins, Ph.D.</h3>
+        <p>Colorado School of Mines</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="callout-strip">
+  <div class="container">
+    <p class="section-label" style="text-align:center;">Get involved</p>
+    <h2>Interested in attending or contributing?</h2>
+    <p>This symposium is currently proposed and pending acceptance. If you are interested in attending, presenting, or being kept informed of updates, please reach out.</p>
+    <div class="callout-actions">
+      <a href="contact.html" class="btn-primary">
+        Express Interest <i class="fa-solid fa-arrow-right" style="font-size:0.8em;"></i>
+      </a>
+      <a href="events.html" class="btn-secondary">Back to Events</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">Robots for All</a>
+    <div class="footer-copy">© 2025 Robots for All. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.toggle('open');
+  hamburger.innerHTML = isOpen
+    ? '<i class="fa-solid fa-xmark"></i>'
+    : '<i class="fa-solid fa-bars"></i>';
+});
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+  });
+});
+</script>
+</body>
+</html>
