@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <title>Universal Design — Robots for All</title>
+<link rel="icon" type="image/png" href="img/logo/faviconColour.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,14 +51,12 @@
   }
  
   /* ── NAV ── */
-  nav {
+    nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     height: var(--nav-height);
-    background: rgba(250, 250, 248, 0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--gray-100);
+    background: #000000;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
     z-index: 100;
     display: flex;
     align-items: center;
@@ -66,23 +65,16 @@
   }
  
   .nav-logo {
-    font-family: 'Playfair Display', sans-serif;
-    font-weight: 800;
-    font-size: 1.15rem;
-    letter-spacing: 0.04em;
-    color: var(--gray-900);
     text-decoration: none;
     margin-right: auto;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
   }
- 
-  .nav-logo span {
-    display: inline-block;
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--teal-400);
+
+  .nav-logo img {
+    height: 108px;
+    width: auto;
+    display: block;
   }
  
   .nav-links {
@@ -96,7 +88,7 @@
     text-decoration: none;
     font-size: 0.875rem;
     font-weight: 400;
-    color: var(--gray-600);
+    color: rgba(255,255,255,0.75);
     padding: 0.4rem 0.75rem;
     border-radius: 6px;
     transition: color 0.2s, background 0.2s;
@@ -104,7 +96,7 @@
   }
  
   .nav-links a:hover,
-  .nav-links a.active { color: var(--gray-900); background: var(--gray-50); }
+  .nav-links a:hover { color: #ffffff; background: rgba(255,255,255,0.1); }
   .nav-links a.active { font-weight: 500; }
  
   .nav-cta {
@@ -626,13 +618,10 @@
     gap: 1rem;
   }
  
-  .footer-logo {
-    font-family: 'Playfair Display', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    color: #fff;
-    letter-spacing: 0.03em;
-    text-decoration: none;
+  .footer-logo img {
+    height: 108px;
+    width: auto;
+    display: block;
   }
  
   .footer-copy { font-size: 0.82rem; color: var(--gray-400); }
@@ -711,7 +700,7 @@
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
-    <span></span>Robots for All
+    <img src="img/logo/PrimaryLogoColour.png" alt="Robots For All Logo">
   </a>
   <ul class="nav-links">
     <li><a href="universaldesign.html" class="active">Universal Design</a></li>
@@ -966,8 +955,8 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <a href="index.html" class="footer-logo">Robots for All</a>
-    <div class="footer-copy">© 2025 Robots for All. All rights reserved.</div>
+    <div class="footer-logo"><img src="img/logo/PrimaryLogoColour.png" alt="Robots For All Logo"></div>
+    <div class="footer-copy">© 2026 Robots for All. All rights reserved.</div>
   </div>
 </footer>
  
